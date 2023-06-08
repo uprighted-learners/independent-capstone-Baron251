@@ -15,6 +15,7 @@ const errorResponse = (res, error) => {
 	});
 };
 
+//TODO POST User
 router.post("/signup", async (req, res) => {
 	try {
 		const user = new User({
@@ -42,6 +43,7 @@ router.post("/signup", async (req, res) => {
 	}
 });
 
+//TODO POST User
 router.post("/login", async (req, res) => {
 	try {
 		const { userName, password } = req.body;
@@ -64,6 +66,7 @@ router.post("/login", async (req, res) => {
 	}
 });
 
+//TODO GET Users
 router.get("/getusers", async (req, res) => {
 	try {
 		const getAllUsers = await User.find();
@@ -83,6 +86,7 @@ router.get("/getusers", async (req, res) => {
 	}
 });
 
+//TODO GET User
 router.get("/user/:singlueuser", async (req, res) => {
     try {
         const { singleuser } = req.params;

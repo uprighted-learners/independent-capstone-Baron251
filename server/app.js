@@ -12,13 +12,14 @@ const characters = require("./controllers/character.controller")
 const validateSession = require("./middleware/validate-session")
 const cors = require('cors')
 
-
+//! Mongo
 const mongoose = require("mongoose")
 const MONGO = process.env.MONGODB;
 mongoose.connect(`${MONGO}/d&dcc`);
 const db = mongoose.connection;
 db.once("open", () => log(`Connected: ${MONGO}`));
 
+//! Using JSON + cors
 app.use(express.json())
 app.use(cors())
 

@@ -61,7 +61,8 @@ router.get("/:id", validateSession, async (req, res) => {
 
 		getCharacter
 			? res.status(200).json({
-					message: `${getCharacter.Name} was found.`,
+					message: `${getCharacter.name} was found.`,
+					getCharacter
 			  })
 			: res.status(404).json({ message: `That character was not found` });
 	} catch (error) {

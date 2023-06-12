@@ -16,7 +16,7 @@ export default function CharacterTable(props) {
 						</tr>
 					</thead>
 					<tbody>
-						{props.characters.map((character) => (
+						{props.characters.map(character => (
 							<tr key={character._id}>
 								<th scope="row">{character.name}</th>
 								<td>{character.class}</td>

@@ -5,7 +5,7 @@ import CharacterFields from "./CharacterFields";
 
 export default function CharacterSheet(props) {
 	const { id } = useParams();
-	const [fields, setFields] = useState();
+	const [fields, setFields] = useState({});
 	const url = `http://localhost:4000/character/${id}`;
 	const navigate = useNavigate()
 

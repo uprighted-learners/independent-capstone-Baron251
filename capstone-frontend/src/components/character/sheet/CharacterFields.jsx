@@ -11,8 +11,8 @@ export default function CharacterFields(props) {
 				<thead>
 					<tr>
 						<th>{props.fields.name}</th>
-						<th>This</th>
-						<th>Work?</th>
+						<th>{props.fields.class}</th>
+						<th>{props.fields.level}</th>
 					</tr>
 				</thead>
 				<tbody>

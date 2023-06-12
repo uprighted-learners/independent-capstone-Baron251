@@ -4,6 +4,8 @@ import './App.css';
 import Auth from './components/auth/Auth'
 import Logout from './components/auth/logout/Logout'
 import CharacterIndex from './components/character/CharacterIndex';
+import CharacterCreate from './components/character/CharacterCreate';
+import CharacterSheet from './components/character/sheet/CharacterSheet';
 function App() {
   const [sessionToken, setSessionToken] = useState("")
 
@@ -25,6 +27,8 @@ function App() {
     <Routes>
     <Route path="/" element={<Auth updateToken={updateToken} />} />
     <Route path="/character" element={<CharacterIndex token={sessionToken}/>} />
+    <Route path="/character/creation" element={<CharacterCreate token={sessionToken}/>}/>
+    <Route path="/character/:id" element={<CharacterSheet token={sessionToken}/>}/>
     </Routes>
 
     </div>

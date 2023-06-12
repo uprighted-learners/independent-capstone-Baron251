@@ -44,7 +44,7 @@ export default function Login({ updateToken }) {
 			<Form onSubmit={handleSubmit}>
 				<FormGroup>
 					<Label>Username:</Label>
-					<Input innerRef={userNameRef} placeholder="Username" autocomplete="off"/>
+					<Input innerRef={userNameRef} placeholder="Username" autoComplete="off"/>
 					<Label>Password:</Label>
 					<Input innerRef={passwordRef} placeholder="Password" type="password" autoComplete="off"/>
 				</FormGroup>

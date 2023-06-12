@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
 
 const CharacterSchema = new mongoose.Schema({
-	Name: {
+	name: {
 		type: String,
 		required: true,
 	},
-	Class: {
+	class: {
 		type: String,
 		required: true,
 	},
-	Race: {
+	race: {
 		type: String,
 		required: true,
 	},
-	Level: {
+	level: {
 		type: Number,
 	},
 	backStory: {
@@ -23,7 +23,7 @@ const CharacterSchema = new mongoose.Schema({
 		type: Object,
 		required: true,
 	},
-	Stats: {
+	stats: {
 		type: Object,
 		required: true,
 	},

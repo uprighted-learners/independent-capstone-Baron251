@@ -14,13 +14,13 @@ const errorResponse = (res, error) => {
 router.post("/", validateSession, async (req, res) => {
 	try {
 		const character = new Character({
-			Name: req.body.name,
-			Class: req.body.class,
-			Race: req.body.race,
-			Level: req.body.level,
+			name: req.body.name,
+			class: req.body.class,
+			race: req.body.race,
+			level: req.body.level,
 			backStory: req.body.backStory,
 			physicalAtt: req.body.physicalAtt,
-			Stats: req.body.stats,
+			stats: req.body.stats,
 			owner_id: req.user._id,
 		});
 
@@ -31,7 +31,7 @@ router.post("/", validateSession, async (req, res) => {
 			message: "Congrats! You have the start of a new character",
 		});
 	} catch (err) {
-		errorResponse(res, err);
+		res.json({message: err.message})
 	}
 });
 

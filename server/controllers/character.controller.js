@@ -3,11 +3,11 @@ const Character = require("../models/character.model");
 
 const validateSession = require("../middleware/validate-session");
 
-const errorResponse = (res, error) => {
-	return res.status(500).json({
-		Error: error.message,
-	});
-};
+// const errorResponse = (res, error) => {
+// 	return res.status(500).json({
+// 		Error: error.message,
+// 	});
+// };
 
 //TODO POST One
 // http://localhost:4000/characters/
@@ -31,7 +31,7 @@ router.post("/", validateSession, async (req, res) => {
 			message: "Congrats! You have the start of a new character",
 		});
 	} catch (err) {
-		res.json({message: err.message})
+		console.log(err)
 	}
 });
 
@@ -41,15 +41,15 @@ router.get("/", validateSession, async (req, res) => {
 		const getAllCharacters = await Character.find();
 
 		getAllCharacters
-			? res.status(200).json({
+			 ? res.status(200).json({
 					message: "All characters made so far.",
 					getAllCharacters,
 			  })
-			: res.status(404).json({
+			 : res.status(404).json({
 					message: `No characters found.`,
 			  });
 	} catch (error) {
-		errorResponse(res, error);
+		console.log(error)
 	}
 });
 
@@ -66,7 +66,7 @@ router.get("/:id", validateSession, async (req, res) => {
 			  })
 			: res.status(404).json({ message: `That character was not found` });
 	} catch (error) {
-		errorResponse(res, error);
+		console.log(error)
 	}
 });
 
@@ -92,7 +92,7 @@ router.patch("/:id", validateSession, async (req, res) => {
 					message: `Could not find character to patch`,
 			  });
 	} catch (error) {
-		errorResponse(res, error);
+		console.log(error)
 	}
 });
 
@@ -117,7 +117,7 @@ router.delete("/:id", validateSession, async (req, res) => {
 					message: `Could not find character to delete.`,
 			  });
 	} catch (err) {
-		errorResponse(res, err);
+		console.log(err)
 	}
 });
 module.exports = router;

@@ -58,9 +58,9 @@ export default function CharacterFields(props) {
 					</Col>
 				</Row>
 			</Container>
-			<Container style={{ display: "flex-column"}}>
+			{/* <Container style={{ display: "flex"}}> */}
 						<CharacterStats stats={props.fields.stats} fetchFields={props.fetchFields} token={props.token}/>
-			</Container>
+			{/* </Container> */}
 		</>
 	);
 }

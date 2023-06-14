@@ -5,7 +5,29 @@ import CharacterFields from "./CharacterFields";
 
 export default function CharacterSheet(props) {
 	const { id } = useParams();
-	const [fields, setFields] = useState({});
+	const [fields, setFields] = useState({
+		name: "No Name",
+		class: "No Class",
+		race: "No Race",
+		level: "0",
+		backStory: "No Backstory",
+		physicalAtt: {
+			Hair: "No Hair",
+			Eyes: "No Eyes",
+			Height: "No Height",
+			Age: "No Age",
+			Skin: "No Skin",
+			Weight: "No Weight"
+		},
+		stats: {
+			Strength: "",
+			Dexterity: "",
+			Constitution: "",
+			Intelligence: "",
+			Wisdom: "",
+			Charisma: ""
+		}
+	});
 	
 	const url = `http://localhost:4000/character/${id}`;
 	const navigate = useNavigate();

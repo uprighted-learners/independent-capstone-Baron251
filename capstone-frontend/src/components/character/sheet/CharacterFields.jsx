@@ -8,7 +8,12 @@ import {
 	Col,
 	Row,
 } from "reactstrap";
+import { useEffect } from "react";
+import CharacterStats from "./CharacterStats";
 export default function CharacterFields(props) {
+	useEffect(() => {
+		props.fetchFields();
+	}, [props.token]);
 	return (
 		<>
 			<Container style={{ display: "flex", padding: "0px" }}>
@@ -18,7 +23,7 @@ export default function CharacterFields(props) {
 					}}
 				>
 					<CardText>
-						<h4>Character Name: {props.fields.name}</h4>
+						Character Name: {props.fields.name}
 					</CardText>
 				</Card>
 			</Container>
@@ -54,7 +59,7 @@ export default function CharacterFields(props) {
 				</Row>
 			</Container>
 			<Container style={{ display: "flex-column"}}>
-						{props.stats.Strength}
+						<CharacterStats stats={props.fields.stats} fetchFields={props.fetchFields} token={props.token}/>
 			</Container>
 		</>
 	);

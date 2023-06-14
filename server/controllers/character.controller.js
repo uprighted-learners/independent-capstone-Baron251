@@ -3,11 +3,6 @@ const Character = require("../models/character.model");
 
 const validateSession = require("../middleware/validate-session");
 
-// const errorResponse = (res, error) => {
-// 	return res.status(500).json({
-// 		Error: error.message,
-// 	});
-// };
 
 //TODO POST One
 // http://localhost:4000/characters/
@@ -57,14 +52,15 @@ router.get("/", validateSession, async (req, res) => {
 router.get("/:id", validateSession, async (req, res) => {
 	try {
         const { id } = req.params
+		console.log("ID", id)
 		const getCharacter = await Character.findOne({ _id: id });
 
 		getCharacter
-			? res.status(200).json({
+			res.status(200).json({
 					message: `${getCharacter.name} was found.`,
 					getCharacter
 			  })
-			: res.status(404).json({ message: `That character was not found` });
+			
 	} catch (error) {
 		console.log(error)
 	}

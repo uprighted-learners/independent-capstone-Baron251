@@ -9,11 +9,7 @@ const jwt = require("jsonwebtoken");
 
 const SECRET = process.env.JWT;
 
-const errorResponse = (res, error) => {
-	return res.status(500).json({
-		Error: error.message,
-	});
-};
+
 
 //TODO POST User
 router.post("/signup", async (req, res) => {

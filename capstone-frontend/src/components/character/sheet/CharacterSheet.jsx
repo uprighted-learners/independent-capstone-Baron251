@@ -20,18 +20,17 @@ export default function CharacterSheet(props) {
 		try {
 			const response = await fetch(url, requestOptions);
 			const data = await response.json();
-			console.log("Data", data);
 			setFields(data.getCharacter);
 		} catch (err) {
 			console.log(err);
 		}
 	};
-
 	useEffect(() => {
 		if (props.token) {
 			fetchFields();
 		}
 	}, [props.token]);
+	console.log("First Derp", fields.stats)
 	return (
 		<>
 			<Container style={{ display: "flex", alignContent: "left", paddingBottom: "50px" }}>
@@ -44,7 +43,7 @@ export default function CharacterSheet(props) {
 				fetchFields={fetchFields}
 				token={props.token}
 				fields={fields}
-				stats={fields.stats}
+				// stats={fields.stats}
 			/>
 		</>
 	);

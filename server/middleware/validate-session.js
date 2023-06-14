@@ -3,11 +3,7 @@ const User = require("../models/user.model")
 
 const SECRET = process.env.JWT;
 
-const errorResponse = (res, error) => {
-	return res.status(500).json({
-		Error: error.message,
-	});
-};
+
 
 const validateSession = async (req, res, next) => {
     try {
@@ -18,7 +14,7 @@ const validateSession = async (req, res, next) => {
         if (!user) throw Error("User not found");
         req.user = user
     } catch (err) {
-        errorResponse(res, err);
+        console.log(err)
     }
 
     return next();

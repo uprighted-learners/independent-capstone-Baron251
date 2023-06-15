@@ -1,13 +1,4 @@
-import {
-	Card,
-	CardTitle,
-	CardText,
-	ListGroup,
-	ListGroupItem,
-	Container,
-	Col,
-	Row,
-} from "reactstrap";
+import { Card, CardText, Container, Col, Row } from "reactstrap";
 import { useEffect } from "react";
 import CharacterStats from "./CharacterStats";
 export default function CharacterFields(props) {
@@ -17,24 +8,15 @@ export default function CharacterFields(props) {
 	return (
 		<>
 			<Container style={{ display: "flex", padding: "0px" }}>
-				<Card
-					style={{
-						width: "20em",
-					}}
-				>
-					<CardText>
-						Character Name: {props.fields.name}
-					</CardText>
+				<Card style={{width: "20em"}}>
+					<CardText>Character Name: {props.fields.name}</CardText>
 				</Card>
 			</Container>
 
-			<Container style={{
-				// width: "67.59px"
-			}}>
+			<Container>
 				<Row
 					style={{
 						marginTop: "20px",
-						
 						width: "24.68%",
 					}}
 				>
@@ -45,7 +27,7 @@ export default function CharacterFields(props) {
 							width: "50%",
 						}}
 					>
-						<CardText>Proficiency Bonus: +2</CardText>
+						<CardText>Proficiency Bonus: </CardText>
 					</Col>
 					<Col
 						className="bg-light border"
@@ -54,13 +36,19 @@ export default function CharacterFields(props) {
 							width: "50%",
 						}}
 					>
-						<CardText>Level: <br/>{props.fields.level}</CardText>
+						<CardText>
+							Level: <br />
+							{props.fields.level}
+						</CardText>
 					</Col>
 				</Row>
 			</Container>
-			{/* <Container style={{ display: "flex"}}> */}
-						<CharacterStats stats={props.fields.stats} fetchFields={props.fetchFields} token={props.token}/>
-			{/* </Container> */}
+
+			<CharacterStats
+				stats={props.fields.stats}
+				fetchFields={props.fetchFields}
+				token={props.token}
+			/>
 		</>
 	);
 }

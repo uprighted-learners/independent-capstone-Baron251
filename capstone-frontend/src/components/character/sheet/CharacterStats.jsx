@@ -1,5 +1,5 @@
 // ! Child of Character Fields. WIP
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
 	Card,
 	CardBody,
@@ -11,13 +11,8 @@ import {
 } from "reactstrap";
 
 export default function CharacterStats(props) {
-    const [mod, setMod] = useState("")
 
-    // if (props.stats.Strength = "14"){
-    //     setMod("+2")
-    // }
-    // ! Too many Re-Renders. Figure it out tomorrow.
-
+	
 	useEffect(() => {
 		props.fetchFields();
 	}, [props.token]);
@@ -38,7 +33,7 @@ export default function CharacterStats(props) {
 					<Col>
 						<CardColumns>
 							<Card>
-								<CardTitle tag="p">+0</CardTitle> {/* Too many Re-renders*/}
+								<CardTitle tag="p">+0</CardTitle> 
 								<CardBody
 									tag="h2"
 									style={{ paddingTop: "1px", paddingBottom: "1px" }}

@@ -7,7 +7,7 @@ const CharacterSchema = new mongoose.Schema({
 	},
 	class: {
 		type: String,
-		required: true,
+		// required: true,
 	},
 	race: {
 		type: String,
@@ -27,6 +27,7 @@ const CharacterSchema = new mongoose.Schema({
 		type: Object,
 		required: true,
 	},
+
     owner_id: {
 		type: String,
 		required: true,

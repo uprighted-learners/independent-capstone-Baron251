@@ -19,7 +19,7 @@ export default function CharacterTable(props) {
 						{props.characters.map(character => (
 							<tr key={character._id}>
 								<th scope="row">{character.name}</th>
-								<td>{character.class}</td>
+								<td>{character.cla}</td>
 								<td>
 									<Button
 										onClick={() => navigate(`/character/${character._id}`)}

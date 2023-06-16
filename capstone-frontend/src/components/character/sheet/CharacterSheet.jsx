@@ -7,7 +7,7 @@ export default function CharacterSheet(props) {
 	const { id } = useParams();
 	const [fields, setFields] = useState({
 		name: "No Name",
-		class: "No Class",
+		cla: "No Class",
 		race: "No Race",
 		level: "0",
 		backStory: "No Backstory",

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button, Container } from "reactstrap";
+import { Button, Container, Card, CardBody, CardText, CardTitle } from "reactstrap";
 import CharacterFields from "./CharacterFields";
 
 export default function CharacterSheet(props) {
@@ -12,23 +12,23 @@ export default function CharacterSheet(props) {
 		level: "0",
 		backStory: "No Backstory",
 		physicalAtt: {
-			Hair: "No Hair",
-			Eyes: "No Eyes",
-			Height: "No Height",
-			Age: "No Age",
-			Skin: "No Skin",
-			Weight: "No Weight"
+			hair: "No Hair",
+			eyes: "No Eyes",
+			height: "No Height",
+			age: "No Age",
+			skin: "No Skin",
+			weight: "No Weight"
 		},
 		stats: {
-			Strength: "",
-			Dexterity: "",
-			Constitution: "",
-			Intelligence: "",
-			Wisdom: "",
-			Charisma: ""
+			strength: "",
+			dexterity: "",
+			constitution: "",
+			intelligence: "",
+			wisdom: "",
+			charisma: ""
 		}
 	});
-	
+
 	const url = `http://localhost:4000/character/${id}`;
 	const navigate = useNavigate();
 
@@ -60,13 +60,18 @@ export default function CharacterSheet(props) {
 					Back to Character List
 				</Button>
 			</Container>
-			
+			<Container>
+				<Button onClick={() => navigate(`/character/edit/${id}`)}>
+					Edit Character
+				</Button>
+			</Container>
 			<CharacterFields
 				fetchFields={fetchFields}
 				token={props.token}
 				fields={fields}
 				// stats={fields.stats}
 			/>
+			
 		</>
 	);
 }

@@ -6,6 +6,7 @@ import Logout from './components/auth/logout/Logout'
 import CharacterIndex from './components/character/CharacterIndex';
 import CharacterCreate from './components/character/CharacterCreate';
 import CharacterSheet from './components/character/sheet/CharacterSheet';
+import CharacterEdit from './components/character/CharacterEdit';
 function App() {
   const [sessionToken, setSessionToken] = useState("")
 
@@ -29,6 +30,7 @@ function App() {
     <Route path="/character" element={<CharacterIndex token={sessionToken}/>} />
     <Route path="/character/creation" element={<CharacterCreate token={sessionToken}/>}/>
     <Route path="/character/:id" element={<CharacterSheet token={sessionToken}/>}/>
+    <Route path="/character/edit/:id" element={<CharacterEdit token={sessionToken}/>}/>
     </Routes>
 
     </div>

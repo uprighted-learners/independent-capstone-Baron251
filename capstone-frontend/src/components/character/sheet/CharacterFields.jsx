@@ -1,4 +1,4 @@
-import { Card, CardText, Container, Col, Row } from "reactstrap";
+import { Card, CardText, CardTitle, Container, Col, Row } from "reactstrap";
 import { useEffect } from "react";
 import CharacterStats from "./CharacterStats";
 export default function CharacterFields(props) {
@@ -43,7 +43,19 @@ export default function CharacterFields(props) {
 					</Col>
 				</Row>
 			</Container>
+			<Container>
+				<CardText>{props.fields.backStory}</CardText>
+			</Container>
 
+			<Container>
+				<Card>
+					<CardTitle>
+						<CardText>
+							{props.fields.physicalAtt.age}
+						</CardText>
+					</CardTitle>
+				</Card>
+			</Container>
 			<CharacterStats
 				stats={props.fields.stats}
 				fetchFields={props.fetchFields}

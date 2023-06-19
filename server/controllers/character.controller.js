@@ -19,7 +19,7 @@ router.post("/", validateSession, async (req, res) => {
 				height: req.body.height,
 				age: req.body.age,
 				skin: req.body.skin,
-				weight: req.body.weight
+				weight: req.body.weight,
 			},
 			stats: {
 				strength: req.body.strength,
@@ -27,13 +27,13 @@ router.post("/", validateSession, async (req, res) => {
 				constitution: req.body.constitution,
 				intelligence: req.body.intelligence,
 				wisdom: req.body.wisdom,
-				charisma: req.body.charisma
+				charisma: req.body.charisma,
 			},
 			owner_id: req.user._id,
 		});
-		
+
 		const newCharacter = await character.save();
-		
+
 		res.status(200).json({
 			character: newCharacter,
 			message: "Congrats! You have the start of a new character",
@@ -42,7 +42,6 @@ router.post("/", validateSession, async (req, res) => {
 		console.log(err);
 	}
 });
-
 
 //TODO GET All
 router.get("/", validateSession, async (req, res) => {
@@ -78,6 +77,7 @@ router.get("/:id", validateSession, async (req, res) => {
 	}
 });
 
+
 //TODO PATCH One
 router.patch("/:id", validateSession, async (req, res) => {
 	try {
@@ -90,7 +90,7 @@ router.patch("/:id", validateSession, async (req, res) => {
 			info,
 			returnOption
 		);
-
+		console.log("Info", info);
 		update
 			? res.status(200).json({
 					message: `Character successfully updated.`,
@@ -103,6 +103,7 @@ router.patch("/:id", validateSession, async (req, res) => {
 		console.log(error);
 	}
 });
+
 
 //TODO DELETE One
 router.delete("/:id", validateSession, async (req, res) => {

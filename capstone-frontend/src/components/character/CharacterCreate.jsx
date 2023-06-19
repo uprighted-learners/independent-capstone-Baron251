@@ -42,14 +42,14 @@ export default function CharacterCreate(props) {
 	const raceRef = useRef();
 	const levelRef = useRef();
 	const backStoryRef = useRef();
-	const physicalRef = useRef();
+	// const physicalRef = useRef();
 	const ageRef = useRef();
 	const hairRef = useRef();
 	const eyesRef = useRef();
 	const weightRef = useRef();
 	const skinRef = useRef();
 	const heightRef = useRef();
-	const statsRef = useRef();
+	// const statsRef = useRef();
 	const strengthRef = useRef();
 	const dexterityRef = useRef();
 	const constitutionRef = useRef();
@@ -66,14 +66,14 @@ export default function CharacterCreate(props) {
 		const level = levelRef.current.value;
 		const backStory = backStoryRef.current.value;
 		// const test = testRef.current.value;
-		const physicalAtt = physicalRef.current;
+		// const physicalAtt = physicalRef.current;
 		const age = ageRef.current.value;
 		const hair = hairRef.current.value;
 		const eyes = eyesRef.current.value;
 		const weight = weightRef.current.value;
 		const skin = skinRef.current.value;
 		const height = heightRef.current.value;
-		const stats = statsRef.current;
+		// const stats = statsRef.current;
 		const strength = strengthRef.current.value;
 		const dexterity = dexterityRef.current.value;
 		const constitution = constitutionRef.current.value;
@@ -87,14 +87,14 @@ export default function CharacterCreate(props) {
 			race,
 			level,
 			backStory,
-			physicalAtt,
+			// physicalAtt,
 			age,
 			hair,
 			eyes,
 			weight,
 			skin,
 			height,
-			stats,
+			// stats,
 			strength,
 			dexterity,
 			constitution,
@@ -171,7 +171,7 @@ export default function CharacterCreate(props) {
 					<Label>Backstory</Label>
 					<Input innerRef={backStoryRef} type="textarea" />
 				</FormGroup>
-				<FormGroup innerRef={physicalRef}>
+				<FormGroup >
 					<Label>Physical Traits</Label>
 					<InputGroup>
 						<Input
@@ -214,7 +214,7 @@ export default function CharacterCreate(props) {
 						/>
 					</InputGroup>
 				</FormGroup>
-				<FormGroup innerRef={statsRef}>
+				<FormGroup >
 					<Label>Attributes</Label>
 					<InputGroup>
 						<Input

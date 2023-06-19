@@ -20,14 +20,14 @@ export default function CharacterEdit(props) {
 	const [characterRace, setCharacterRace] = useState("");
 	const [characterLevel, setCharacterLevel] = useState("");
 	const [characterBackStory, setCharacterBackStory] = useState("");
-	const [characterPhysicalAtt, setCharacterPhysicalAtt] = useState("");
+
 	const [characterAge, setCharacterAge] = useState("");
 	const [characterHair, setCharacterHair] = useState("");
 	const [characterEyes, setCharacterEyes] = useState("");
 	const [characterWeight, setCharacterWeight] = useState("");
 	const [characterSkin, setCharacterSkin] = useState("");
 	const [characterHeight, setCharacterHeight] = useState("");
-	const [characterStats, setCharacterStats] = useState("");
+
 	const [characterStrength, setCharacterStrength] = useState("");
 	const [characterDexterity, setCharacterDexterity] = useState("");
 	const [characterConstitution, setCharacterConstitution] = useState("");
@@ -76,10 +76,8 @@ export default function CharacterEdit(props) {
 			const res = await fetch(url, requestOptions);
 			const data = await res.json();
 
-			const { name, cla, race, level, backStory, physicalAtt, stats } =
-				data.getCharacter;
-			const { age, hair, eyes, weight, skin, height } =
-				data.getCharacter.physicalAtt;
+			const { name, cla, race, level, backStory } = data.getCharacter;
+			const { age, hair, eyes, weight, skin, height } = data.getCharacter.physicalAtt;
 			const {
 				strength,
 				dexterity,
@@ -88,20 +86,20 @@ export default function CharacterEdit(props) {
 				wisdom,
 				charisma,
 			} = data.getCharacter.stats;
-
+			console.log("Age", age)
 			setCharacterName(name);
 			setCharacterCla(cla);
 			setCharacterRace(race);
 			setCharacterLevel(level);
 			setCharacterBackStory(backStory);
-			// setCharacterPhysicalAtt(physicalAtt);
+		
 			setCharacterAge(age);
 			setCharacterHair(hair);
 			setCharacterEyes(eyes);
 			setCharacterWeight(weight);
 			setCharacterSkin(skin);
 			setCharacterHeight(height);
-			// setCharacterStats(stats);
+		
 			setCharacterStrength(strength);
 			setCharacterDexterity(dexterity);
 			setCharacterConstitution(constitution);
@@ -128,20 +126,22 @@ export default function CharacterEdit(props) {
 			race: characterRace,
 			level: characterLevel,
 			backStory: characterBackStory,
-			// physicalAtt: characterPhysicalAtt,
+			physicalAtt: {
 			age: characterAge,
 			hair: characterHair,
 			eyes: characterEyes,
 			weight: characterWeight,
 			skin: characterSkin,
 			height: characterHeight,
-			// stats: characterStats,
+			},
+			stats: {
 			strength: characterStrength,
 			dexterity: characterDexterity,
 			constitution: characterConstitution,
 			intelligence: characterIntelligence,
 			wisdom: characterWisdom,
 			charisma: characterCharisma,
+			}
 		});
 
 		const requestOptions = {

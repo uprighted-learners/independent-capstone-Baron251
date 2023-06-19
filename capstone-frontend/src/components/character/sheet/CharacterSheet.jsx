@@ -52,7 +52,7 @@ export default function CharacterSheet(props) {
 			fetchFields();
 		}
 	}, [props.token]);
-	console.log("First Derp", fields.stats)
+
 	return (
 		<>
 			<Container style={{ display: "flex", alignContent: "left", paddingBottom: "50px" }}>

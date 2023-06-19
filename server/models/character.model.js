@@ -26,6 +26,7 @@ const PhysicalSchema = new mongoose.Schema({
 		required: true,
 	},
 });
+
 const StatSchema = new mongoose.Schema({
 	strength: {
 		type: Number,
@@ -76,16 +77,14 @@ const CharacterSchema = new mongoose.Schema({
 		type: PhysicalSchema,
 		required: true,
 	},
-
 	stats: {
 		type: StatSchema,
 		required: true,
 	},
-
 	owner_id: {
 		type: String,
 		required: true,
 	},
 });
 
-module.exports = mongoose.model("Character", CharacterSchema);
+module.exports = mongoose.model("Character", CharacterSchema)

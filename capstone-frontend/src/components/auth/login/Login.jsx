@@ -1,7 +1,7 @@
 import { Form, FormGroup, Input, Button, Label } from "reactstrap";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import FullButton from "../../buttons/FullButton";
+
 
 export default function Login({ updateToken }) {
 	const userNameRef = useRef();
@@ -41,14 +41,14 @@ export default function Login({ updateToken }) {
 
 	return (
 		<>
-			<Form onSubmit={handleSubmit}>
+			<Form onSubmit={handleSubmit} style={{ width: "100%", marginTop: "250px", backgroundColor: "rgba(52, 52, 52, 0.49)", borderRadius: "10px", fontSize: 30}}>
 				<FormGroup>
-					<Label>Username:</Label>
+					<Label style={{ color: "#F5A300"}}>Username:</Label>
 					<Input innerRef={userNameRef} placeholder="Username" autoComplete="off"/>
-					<Label>Password:</Label>
+					<Label style={{ color: "#F5A300"}}>Password:</Label>
 					<Input innerRef={passwordRef} placeholder="Password" type="password" autoComplete="off"/>
 				</FormGroup>
-				<Button type="submit">Login</Button>
+				<Button type="submit" style={{ fontSize: 20 }}>Login</Button>
 			</Form>
 		</>
 	);

@@ -7,8 +7,10 @@ import CharacterIndex from './components/character/CharacterIndex';
 import CharacterCreate from './components/character/CharacterCreate';
 import CharacterSheet from './components/character/sheet/CharacterSheet';
 import CharacterEdit from './components/character/CharacterEdit';
+
 function App() {
   const [sessionToken, setSessionToken] = useState("")
+ 
 
   const updateToken = (newToken) => {
     localStorage.setItem("token", newToken);

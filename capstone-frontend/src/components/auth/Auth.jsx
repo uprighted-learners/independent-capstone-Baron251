@@ -1,6 +1,7 @@
-import { Col, Container, Button, Row } from "reactstrap";
+import { Container, Button} from "reactstrap";
 import { useState } from "react";
 import FullButton from "../buttons/FullButton";
+import AuthB from "../../assets/Auth-background.png"
 // Signup is child of Auth.jsx
 import Signup from "./signup/Signup";
 // Login is child of Auth.jsx
@@ -18,31 +19,32 @@ export default function Auth(props) {
 	const displayForm = () => {
 		return button === "Login" ? (
 			<Container>
-				<Row>
-					<Col md="6">
+				{/* <Row>
+					<Col md="6"> */}
 						<Signup updateToken={props.updateToken} />
-					</Col>
-				</Row>
+					{/* </Col>
+				</Row> */}
 			</Container>
 		) : (
-			<Container>
-				<Row>
-					<Col md="6">
+			<Container style={{display: "flex", justifySelf: "center", width: "500px"}}>
+				{/* <Row>
+					<Col md="6"> */}
 						<Login updateToken={props.updateToken} />
-					</Col>
-				</Row>
+					{/* </Col>
+				</Row> */}
 			</Container>
 		);
 	};
 
 	return (
-		<>
+		<div style={{backgroundImage: `url(${AuthB})`, backgroundSize: "cover", height: "58.55em", backgroundColor: "#F5DFB8"}}>
 			<FullButton>
 				<Button onClick={swapForm} color="dark">
 					{button}
 				</Button>
 				{displayForm()}
 			</FullButton>
-		</>
+			
+		</div>
 	);
 }

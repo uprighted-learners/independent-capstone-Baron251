@@ -52,17 +52,17 @@ export default function Signup({ updateToken }) {
 
 	return (
 		<>
-			<Form onSubmit={handleSubmit}>
+			<Form onSubmit={handleSubmit} style={{ marginTop: "250px", backgroundColor: "rgba(52, 52, 52, 0.49)", borderRadius: "10px", fontSize: 30}}>
 				<Row>
 					<Col>
 						<FormGroup>
-							<Label>First Name:</Label>
+							<Label style={{ color: "#F5A300"}}>First Name:</Label>
 							<Input
 								innerRef={firstNameRef}
 								autoComplete={"off"}
 								placeholder="First Name"
 							/>
-							<Label>Username:</Label>
+							<Label style={{ color: "#F5A300"}}>Username:</Label>
 							<Input
 								innerRef={userNameRef}
 								autoComplete={"off"}
@@ -72,14 +72,14 @@ export default function Signup({ updateToken }) {
 					</Col>
 					<Col>
 						<FormGroup>
-							<Label>Email:</Label>
+							<Label style={{ color: "#F5A300"}}>Email:</Label>
                             <Input innerRef={emailRef} autoComplete={"off"} placeholder="Email" type="email"/>
-                            <Label>Password:</Label>
+                            <Label style={{ color: "#F5A300"}}>Password:</Label>
                             <Input innerRef={passwordRef} autoComplete={"off"} placeholder="Password" type="password"/>
 						</FormGroup>
 					</Col>
 				</Row>
-                <Button type="submit">Signup</Button>
+                <Button type="submit" style={{ fontSize: 20 }}>Signup</Button>
 			</Form>
 		</>
 	);

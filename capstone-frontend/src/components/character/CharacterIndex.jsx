@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import CharacterCreate from "./CharacterCreate";
 import CharacterTable from "./CharacterTable";
 import {
 	Col,
@@ -10,9 +9,11 @@ import {
 	CardTitle,
 	Button,
 } from "reactstrap";
+import background from '../../assets/CharacterIndex-background.jpg'
 import { useNavigate } from "react-router-dom";
 
 export default function CharacterIndex(props) {
+	
 	const [characters, setCharacters] = useState([]);
 	const navigate = useNavigate();
 	const fetchCharacters = async () => {
@@ -44,11 +45,11 @@ export default function CharacterIndex(props) {
 		navigate("/character/creation");
 	};
 	return (
-		<>
+		<div style={{backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "58.55em"}}>
 			<Container>
 				<Row>
 					<Col md="4">
-						<Card>
+						<Card style={{marginTop: "15em"}}>
 							<CardTitle>Create a Character</CardTitle>
 							<CardText>
 								Hit the button below to start creating your new character. Or if
@@ -67,6 +68,6 @@ export default function CharacterIndex(props) {
 					</Col>
 				</Row>
 			</Container>
-		</>
+		</div>
 	);
 }

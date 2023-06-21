@@ -29,33 +29,43 @@ export default function CharacterTable(props) {
 	return (
 		<>
 			<h1>List of Characters</h1>
-			<Container>
-				<Table>
+			<Container
+				style={{
+					height: "50em",
+					width: "40em",
+					overflow: "scroll",
+					overflowX: "hidden",
+
+				}}
+			>
+				<Table style={{backgroundColor: "rgba(52, 52, 52, 0)", }}>
 					<thead>
 						<tr>
-							<th>Character Name</th>
-							<th>Character Class</th>
+							<th style={{backgroundColor: "rgba(52, 52, 52, 0)", color:"#F5DFB8"}}>Character Name</th>
+							<th style={{backgroundColor: "rgba(52, 52, 52, 0)", color:"#F5DFB8"}}>Character Class</th>
 						</tr>
 					</thead>
 					<tbody>
 						{props.characters.map((character) => (
-							<tr key={character._id}>
-								<th scope="row">{character.name}</th>
-								<td>{character.cla}</td>
-								<td>
+							<tr key={character._id} style={{backgroundColor: "rgba(52, 52, 52, 0)"}}>
+								<th scope="row" style={{ backgroundColor: "rgba(52, 52, 52, 0.49)",fontSize: 20, color:"#F5DFB8" }}>
+									{character.name}
+								</th>
+								<td style={{ fontSize: 20, backgroundColor: "rgba(52, 52, 52, 0.49)", color:"#F5DFB8" }}>
+									{character.cla}
 									<FullButton>
-									<Button
-										onClick={() => navigate(`/character/${character._id}`)}
-										color="success"
-									>
-										<b>View Character</b>
-									</Button>
-									<Button
-										onClick={() => deleteCharacter(character._id)}
-										color="danger"
-									>
-										Delete Character
-									</Button>
+										<Button
+											onClick={() => navigate(`/character/${character._id}`)}
+											color="success"
+										>
+											<b>View Character</b>
+										</Button>
+										<Button
+											onClick={() => deleteCharacter(character._id)}
+											color="danger"
+										>
+											Delete Character
+										</Button>
 									</FullButton>
 								</td>
 							</tr>

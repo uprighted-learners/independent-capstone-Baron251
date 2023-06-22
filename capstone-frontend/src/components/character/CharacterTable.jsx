@@ -28,7 +28,7 @@ export default function CharacterTable(props) {
 	}
 	return (
 		<>
-			<h1>List of Characters</h1>
+			<h1 style={{ color: "#F5DFB8"}}>List of Characters</h1>
 			<Container
 				style={{
 					height: "50em",
@@ -56,13 +56,14 @@ export default function CharacterTable(props) {
 									<FullButton>
 										<Button
 											onClick={() => navigate(`/character/${character._id}`)}
-											color="success"
+											color="success" outline
 										>
 											<b>View Character</b>
 										</Button>
 										<Button
 											onClick={() => deleteCharacter(character._id)}
-											color="danger"
+											// color="danger"
+											 outline
 										>
 											Delete Character
 										</Button>

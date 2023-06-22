@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button, Container, Card, CardBody, CardText, CardTitle } from "reactstrap";
+import { Button, Container, Col, Row } from "reactstrap";
 import CharacterFields from "./CharacterFields";
+import background from "../../../assets/CharacterSheet-background.jpg.jpg";
+import editLogo from "../../../assets/EditLogo.jpg"
 
 export default function CharacterSheet(props) {
 	const { id } = useParams();
@@ -17,7 +19,7 @@ export default function CharacterSheet(props) {
 			height: "No Height",
 			age: "No Age",
 			skin: "No Skin",
-			weight: "No Weight"
+			weight: "No Weight",
 		},
 		stats: {
 			strength: "",
@@ -25,8 +27,8 @@ export default function CharacterSheet(props) {
 			constitution: "",
 			intelligence: "",
 			wisdom: "",
-			charisma: ""
-		}
+			charisma: "",
+		},
 	});
 
 	const url = `http://localhost:4000/character/${id}`;
@@ -54,24 +56,40 @@ export default function CharacterSheet(props) {
 	}, [props.token]);
 
 	return (
-		<>
-			<Container style={{ display: "flex", alignContent: "left", paddingBottom: "50px" }}>
-				<Button style={{ marginTop: "20px"}}color="info" outline onClick={() => navigate(`/character`)}>
-					Back to Character List
-				</Button>
-			</Container>
+		<div
+			style={{ backgroundImage: `url(${background})`, backgroundSize: "cover" }}
+		>
+		
+			<Row>
+				<Col xs="1">
+					<Button
+						style={{ marginTop: "20px" }}
+						color="info"
+						outline
+						onClick={() => navigate(`/character`)}
+					>
+						Back to Character List
+					</Button>
+				</Col>
+			</Row>
+			<Row>
+				<Col xs="1">
+					<Button onClick={() => navigate(`/character/edit/${id}`)}>
+						Edit Character 
+					</Button>
+				</Col>
+			</Row>
+
+		
+
 			<Container>
-				<Button onClick={() => navigate(`/character/edit/${id}`)}>
-					Edit Character
-				</Button>
+				<CharacterFields
+					fetchFields={fetchFields}
+					token={props.token}
+					fields={fields}
+					// stats={fields.stats}
+				/>
 			</Container>
-			<CharacterFields
-				fetchFields={fetchFields}
-				token={props.token}
-				fields={fields}
-				// stats={fields.stats}
-			/>
-			
-		</>
+		</div>
 	);
 }

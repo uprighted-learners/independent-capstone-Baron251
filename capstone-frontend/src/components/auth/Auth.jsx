@@ -39,7 +39,7 @@ export default function Auth(props) {
 	return (
 		<div style={{backgroundImage: `url(${AuthB})`, backgroundSize: "cover", height: "58.55em", backgroundColor: "#F5DFB8"}}>
 			<FullButton>
-				<Button onClick={swapForm} color="dark">
+				<Button onClick={swapForm} color="dark" style={{ borderTopLeftRadius: "0px", borderTopRightRadius: "0px"}}>
 					{button}
 				</Button>
 				{displayForm()}

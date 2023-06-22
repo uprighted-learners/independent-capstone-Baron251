@@ -1,7 +1,7 @@
 {
-  "name": "server",
+  "name": "D&D Character Creator",
   "version": "1.0.0",
-  "description": "",
+  "description": "A website designed for beginners and veteran players alike to easily whip up a character and GO",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,10 +9,12 @@
     "dev": "nodemon"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vaughn Hildebrand Winter",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",

@@ -8,26 +8,23 @@ import {
 	Col,
 	Container,
 	CardTitle,
-	CardSubtitle
+	CardSubtitle,
 } from "reactstrap";
 
 export default function CharacterStats(props) {
+	let strengthMod = Math.floor((props.stats.strength - 10) / 2);
+	let dexterityMod = Math.floor((props.stats.dexterity - 10) / 2);
+	let constitutionMod = Math.floor((props.stats.constitution - 10) / 2);
+	let intelligenceMod = Math.floor((props.stats.intelligence - 10) / 2);
+	let wisdomMod = Math.floor((props.stats.wisdom - 10) / 2);
+	let charismaMod = Math.floor((props.stats.charisma - 10) / 2);
 
-	let strengthMod = Math.floor((props.stats.strength-10)/2)
-	let dexterityMod = Math.floor((props.stats.dexterity-10)/2)
-	let constitutionMod = Math.floor((props.stats.constitution-10)/2)
-	let intelligenceMod = Math.floor((props.stats.intelligence-10)/2)
-	let wisdomMod = Math.floor((props.stats.wisdom-10)/2)
-	let charismaMod = Math.floor((props.stats.charisma-10)/2)
-
-	let plusS = strengthMod > -1 ? "+" : ""
-	let plusD = dexterityMod > -1 ? "+" : ""
-	let plusC= constitutionMod > -1 ? "+" : ""
-	let plusI = intelligenceMod > -1 ? "+" : ""
-	let plusW = wisdomMod > -1 ? "+" : ""
-	let plusCh = charismaMod > -1 ? "+" : ""
-	
-
+	let plusS = strengthMod > -1 ? "+" : "";
+	let plusD = dexterityMod > -1 ? "+" : "";
+	let plusC = constitutionMod > -1 ? "+" : "";
+	let plusI = intelligenceMod > -1 ? "+" : "";
+	let plusW = wisdomMod > -1 ? "+" : "";
+	let plusCh = charismaMod > -1 ? "+" : "";
 
 	useEffect(() => {
 		props.fetchFields();
@@ -35,76 +32,94 @@ export default function CharacterStats(props) {
 
 	return (
 		<>
-			<Row>
-				<Col>
-					<h1>Attributes</h1>
-				</Col>
-			</Row>
+		
 			<Container
 				style={{
-					display: "flex", paddingBottom: "50px"
+					display: "flex",
+					padding: "0px"
+									
 				}}
 			>
 				<Row>
 					<Col>
 						<CardColumns>
 							<Card>
-								<CardTitle tag="p">{plusS}{strengthMod}</CardTitle> 
+								<CardTitle tag="p">
+									{plusS}
+									{strengthMod}
+								</CardTitle>
 								<CardBody
 									tag="h2"
 									style={{ paddingTop: "1px", paddingBottom: "1px" }}
-								>{props.stats.strength}</CardBody>
-								<CardSubtitle>Strength</CardSubtitle>
+								>
+									{props.stats.strength}
+								</CardBody>
+								<CardSubtitle><b>Strength</b></CardSubtitle>
 							</Card>
 							<Card>
-								<CardTitle tag="p">{plusD}{dexterityMod}</CardTitle>
+								<CardTitle tag="p">
+									{plusD}
+									{dexterityMod}
+								</CardTitle>
 								<CardBody
 									tag="h2"
 									style={{ paddingTop: "1px", paddingBottom: "1px" }}
 								>
 									<h3>{props.stats.dexterity}</h3>
 								</CardBody>
-								<CardSubtitle>Dexterity</CardSubtitle>
+								<CardSubtitle><b>Dexterity</b></CardSubtitle>
 							</Card>
 							<Card>
-								<CardTitle tag="p">{plusC}{constitutionMod}</CardTitle>
+								<CardTitle tag="p">
+									{plusC}
+									{constitutionMod}
+								</CardTitle>
 								<CardBody
 									tag="h2"
 									style={{ paddingTop: "1px", paddingBottom: "1px" }}
 								>
 									<h3>{props.stats.constitution}</h3>
 								</CardBody>
-								<CardSubtitle>Constitution</CardSubtitle>
+								<CardSubtitle><b>Constitution</b></CardSubtitle>
 							</Card>
 							<Card>
-								<CardTitle tag="p">{plusI}{intelligenceMod}</CardTitle>
+								<CardTitle tag="p">
+									{plusI}
+									{intelligenceMod}
+								</CardTitle>
 								<CardBody
 									tag="h2"
 									style={{ paddingTop: "1px", paddingBottom: "1px" }}
 								>
 									<h3>{props.stats.intelligence}</h3>
 								</CardBody>
-								<CardSubtitle>Intelligence</CardSubtitle>
+								<CardSubtitle><b>Intelligence</b></CardSubtitle>
 							</Card>
 							<Card>
-								<CardTitle tag="p">{plusW}{wisdomMod}</CardTitle>
+								<CardTitle tag="p">
+									{plusW}
+									{wisdomMod}
+								</CardTitle>
 								<CardBody
 									tag="h2"
 									style={{ paddingTop: "1px", paddingBottom: "1px" }}
 								>
 									<h3>{props.stats.wisdom}</h3>
 								</CardBody>
-								<CardSubtitle>Wisdom</CardSubtitle>
+								<CardSubtitle><b>Wisdom</b></CardSubtitle>
 							</Card>
 							<Card>
-								<CardTitle tag="p">{plusCh}{charismaMod}</CardTitle>
+								<CardTitle tag="p">
+									{plusCh}
+									{charismaMod}
+								</CardTitle>
 								<CardBody
 									tag="h2"
 									style={{ paddingTop: "1px", paddingBottom: "1px" }}
 								>
 									<h3>{props.stats.charisma}</h3>
 								</CardBody>
-								<CardSubtitle>Charisma</CardSubtitle>
+								<CardSubtitle><b>Charisma</b></CardSubtitle>
 							</Card>
 						</CardColumns>
 					</Col>

@@ -8,7 +8,7 @@ import {
 	Button,
 	Container,
 } from "reactstrap";
-
+import background from "../../assets/CharacterCreate-background.jpg"
 export default function CharacterCreate(props) {
 	let classList = [
 		null,
@@ -42,14 +42,12 @@ export default function CharacterCreate(props) {
 	const raceRef = useRef();
 	const levelRef = useRef();
 	const backStoryRef = useRef();
-	// const physicalRef = useRef();
 	const ageRef = useRef();
 	const hairRef = useRef();
 	const eyesRef = useRef();
 	const weightRef = useRef();
 	const skinRef = useRef();
 	const heightRef = useRef();
-	// const statsRef = useRef();
 	const strengthRef = useRef();
 	const dexterityRef = useRef();
 	const constitutionRef = useRef();
@@ -65,15 +63,12 @@ export default function CharacterCreate(props) {
 		const race = raceRef.current.value;
 		const level = levelRef.current.value;
 		const backStory = backStoryRef.current.value;
-		// const test = testRef.current.value;
-		// const physicalAtt = physicalRef.current;
 		const age = ageRef.current.value;
 		const hair = hairRef.current.value;
 		const eyes = eyesRef.current.value;
 		const weight = weightRef.current.value;
 		const skin = skinRef.current.value;
 		const height = heightRef.current.value;
-		// const stats = statsRef.current;
 		const strength = strengthRef.current.value;
 		const dexterity = dexterityRef.current.value;
 		const constitution = constitutionRef.current.value;
@@ -123,19 +118,31 @@ export default function CharacterCreate(props) {
 	};
 
 	return (
-		<>
+		<div style={{ backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 			<h1>Creating your Character</h1>
-			<Form onSubmit={handleSubmit}>
+			<Form onSubmit={handleSubmit} style={{ height: "55.04em"}}>
 
 				<Container style={{ display: "flex" }}>
 
 					<FormGroup>
-						<Label>Character Name</Label>
-						<Input innerRef={nameRef} autoComplete="off" type="text" required />
+						<Label style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+							
+						}}>Character Name</Label>
+						<Input innerRef={nameRef} autoComplete="off" type="text" required placeholder="Name" />
 					</FormGroup>
 
 					<FormGroup>
-						<Label>Class</Label>
+						<Label style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+							
+						}}>Class</Label>
 						<Input innerRef={claRef} type="select" required>
 							{classList.map((clas, i) => (
 								<option key={i} value={clas}>
@@ -148,7 +155,13 @@ export default function CharacterCreate(props) {
 				</Container>
 
 				<FormGroup>
-					<Label>Race</Label>
+					<Label style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+							
+						}}>Race</Label>
 					<Input innerRef={raceRef} type="select" required>
 						{raceList.map((rac, i) => (
 							<option key={i} value={rac}>
@@ -158,7 +171,13 @@ export default function CharacterCreate(props) {
 					</Input>
 				</FormGroup>
 				<FormGroup>
-					<Label>Level</Label>
+					<Label style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+							
+						}}>Level</Label>
 					<Input
 						innerRef={levelRef}
 						type="number"
@@ -168,11 +187,23 @@ export default function CharacterCreate(props) {
 					/>
 				</FormGroup>
 				<FormGroup>
-					<Label>Backstory</Label>
-					<Input innerRef={backStoryRef} type="textarea" />
+					<Label style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+							
+						}}>Backstory</Label>
+					<Input innerRef={backStoryRef} type="textarea" placeholder="Backstory" />
 				</FormGroup>
 				<FormGroup >
-					<Label>Physical Traits</Label>
+					<Label style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+							
+						}}>Physical Traits</Label>
 					<InputGroup>
 						<Input
 							innerRef={ageRef}
@@ -215,7 +246,13 @@ export default function CharacterCreate(props) {
 					</InputGroup>
 				</FormGroup>
 				<FormGroup >
-					<Label>Attributes</Label>
+					<Label style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+							
+						}}>Attributes</Label>
 					<InputGroup>
 						<Input
 							innerRef={strengthRef}
@@ -255,8 +292,8 @@ export default function CharacterCreate(props) {
 						/>
 					</InputGroup>
 				</FormGroup>
-				<Button type="submit">Create Character</Button>
+				<Button type="submit" color="success">Create Character</Button>
 			</Form>
-		</>
+		</div>
 	);
 }

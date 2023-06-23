@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button, Container, Col, Row } from "reactstrap";
 import CharacterFields from "./CharacterFields";
 import background from "../../../assets/CharacterSheet-background.jpg.jpg";
-import editLogo from "../../../assets/EditLogo.jpg"
+
 
 export default function CharacterSheet(props) {
 	const { id } = useParams();
@@ -30,6 +30,7 @@ export default function CharacterSheet(props) {
 			charisma: "",
 		},
 	});
+		
 
 	const url = `http://localhost:4000/character/${id}`;
 	const navigate = useNavigate();
@@ -52,14 +53,19 @@ export default function CharacterSheet(props) {
 	useEffect(() => {
 		if (props.token) {
 			fetchFields();
+			
 		}
 	}, [props.token]);
+	// useEffect(() => {
+	// 	if (props.token && fields !== null) {
+	// 		fetchFields();
+	// 	}
+	// }, [props.token]);
 
 	return (
 		<div
 			style={{ backgroundImage: `url(${background})`, backgroundSize: "cover" }}
 		>
-		
 			<Row>
 				<Col xs="1">
 					<Button
@@ -75,21 +81,17 @@ export default function CharacterSheet(props) {
 			<Row>
 				<Col xs="1">
 					<Button onClick={() => navigate(`/character/edit/${id}`)}>
-						Edit Character 
+						Edit Character
 					</Button>
 				</Col>
 			</Row>
 
-		
+			<CharacterFields
+				fetchFields={fetchFields}
+				token={props.token}
+				fields={fields}
+			/>
 
-			<Container>
-				<CharacterFields
-					fetchFields={fetchFields}
-					token={props.token}
-					fields={fields}
-					// stats={fields.stats}
-				/>
-			</Container>
 		</div>
 	);
 }

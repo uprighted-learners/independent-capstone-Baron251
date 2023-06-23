@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
-
 	Container,
 	Input,
-	
 	Form,
 	FormGroup,
 	Label,
 	Button,
 	InputGroup,
 } from "reactstrap";
+import background from "../../assets/CharacterEdit-background.jpg";
+
+const red = "#AC2C0C";
+
+const str = `${red}Strength`;
 
 export default function CharacterEdit(props) {
 	const { id } = useParams();
@@ -77,7 +80,8 @@ export default function CharacterEdit(props) {
 			const data = await res.json();
 
 			const { name, cla, race, level, backStory } = data.getCharacter;
-			const { age, hair, eyes, weight, skin, height } = data.getCharacter.physicalAtt;
+			const { age, hair, eyes, weight, skin, height } =
+				data.getCharacter.physicalAtt;
 			const {
 				strength,
 				dexterity,
@@ -86,20 +90,20 @@ export default function CharacterEdit(props) {
 				wisdom,
 				charisma,
 			} = data.getCharacter.stats;
-			console.log("Age", age)
+			console.log("Age", age);
 			setCharacterName(name);
 			setCharacterCla(cla);
 			setCharacterRace(race);
 			setCharacterLevel(level);
 			setCharacterBackStory(backStory);
-		
+
 			setCharacterAge(age);
 			setCharacterHair(hair);
 			setCharacterEyes(eyes);
 			setCharacterWeight(weight);
 			setCharacterSkin(skin);
 			setCharacterHeight(height);
-		
+
 			setCharacterStrength(strength);
 			setCharacterDexterity(dexterity);
 			setCharacterConstitution(constitution);
@@ -127,21 +131,21 @@ export default function CharacterEdit(props) {
 			level: characterLevel,
 			backStory: characterBackStory,
 			physicalAtt: {
-			age: characterAge,
-			hair: characterHair,
-			eyes: characterEyes,
-			weight: characterWeight,
-			skin: characterSkin,
-			height: characterHeight,
+				age: characterAge,
+				hair: characterHair,
+				eyes: characterEyes,
+				weight: characterWeight,
+				skin: characterSkin,
+				height: characterHeight,
 			},
 			stats: {
-			strength: characterStrength,
-			dexterity: characterDexterity,
-			constitution: characterConstitution,
-			intelligence: characterIntelligence,
-			wisdom: characterWisdom,
-			charisma: characterCharisma,
-			}
+				strength: characterStrength,
+				dexterity: characterDexterity,
+				constitution: characterConstitution,
+				intelligence: characterIntelligence,
+				wisdom: characterWisdom,
+				charisma: characterCharisma,
+			},
 		});
 
 		const requestOptions = {
@@ -164,13 +168,24 @@ export default function CharacterEdit(props) {
 	}
 
 	return (
-		<>
-			<h1>Edit your Character</h1>
+		<div style={{ backgroundImage: `url(${background})`, height: "58.55em", paddingTop: "50px" }}>
+			<Container className="title" >
+			<h1 style={{ color: "#F5A300", backgroundColor: "rgba(52, 52, 52, 0.65)", width: "25%", borderRadius: "5px"}}>Edit your Character</h1>
+			</Container>
 			<Form onSubmit={handleSubmit}>
 				<Container style={{ display: "flex" }}>
 					<FormGroup>
-						<Label>Character Name</Label>
-						<Input
+						<Label
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								color: "#F5A300",
+								width: "100px",
+								borderRadius: "5px",
+							}}
+						>
+							Character Name
+						</Label>
+						<Input 
 							value={characterName}
 							onChange={(e) => setCharacterName(e.target.value)}
 							autoComplete="off"
@@ -179,7 +194,16 @@ export default function CharacterEdit(props) {
 					</FormGroup>
 
 					<FormGroup>
-						<Label>Class</Label>
+						<Label
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								color: "#F5A300",
+								width: "100px",
+								borderRadius: "5px",
+							}}
+						>
+							Class
+						</Label>
 						<Input
 							value={characterCla}
 							onChange={(e) => setCharacterCla(e.target.value)}
@@ -195,8 +219,27 @@ export default function CharacterEdit(props) {
 				</Container>
 
 				<FormGroup>
-					<Label>Race</Label>
+					<Label
+						style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+							
+						}}
+					>
+						Race
+					</Label>
+
+
+
+
+
+
+
+					{/** REDUCE THE WIDTH OF THE INPUTS MAYBE PUT A CONTAINER ON THEM. MAYBE. **/}
 					<Input
+						style={{ width: "25%"}}
 						value={characterRace}
 						onChange={(e) => setCharacterRace(e.target.value)}
 						type="select"
@@ -209,7 +252,16 @@ export default function CharacterEdit(props) {
 					</Input>
 				</FormGroup>
 				<FormGroup>
-					<Label>Level</Label>
+					<Label
+						style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+						}}
+					>
+						Level
+					</Label>
 					<Input
 						value={characterLevel}
 						onChange={(e) => setCharacterLevel(e.target.value)}
@@ -219,7 +271,16 @@ export default function CharacterEdit(props) {
 					/>
 				</FormGroup>
 				<FormGroup>
-					<Label>Backstory</Label>
+					<Label
+						style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+						}}
+					>
+						Backstory
+					</Label>
 					<Input
 						value={characterBackStory}
 						onChange={(e) => setCharacterBackStory(e.target.value)}
@@ -227,7 +288,16 @@ export default function CharacterEdit(props) {
 					/>
 				</FormGroup>
 				<FormGroup>
-					<Label>Physical Traits</Label>
+					<Label
+						style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+						}}
+					>
+						Physical Traits
+					</Label>
 					<InputGroup>
 						<Input
 							value={characterAge}
@@ -270,7 +340,16 @@ export default function CharacterEdit(props) {
 					</InputGroup>
 				</FormGroup>
 				<FormGroup>
-					<Label>Attributes</Label>
+					<Label
+						style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+						}}
+					>
+						Attributes
+					</Label>
 					<InputGroup>
 						<Input
 							value={characterStrength}
@@ -309,11 +388,27 @@ export default function CharacterEdit(props) {
 							placeholder="Charisma"
 						/>
 					</InputGroup>
+					<Label
+						style={{
+							wordSpacing: "250px",
+							backgroundColor: "rgba(52, 52, 52, 1)",
+							width: "1800px",
+						}}
+					>
+						<b>
+							<span style={{ color: "#AC2C0C" }}>Strength</span>{" "}
+							<span style={{ color: "#21C056" }}>Dexterity</span>{" "}
+							<span style={{ color: "#C36609" }}>Constitution</span>{" "}
+							<span style={{ color: "#018FB7" }}>Intelligence</span>{" "}
+							<span style={{ color: "white" }}>Wisdom</span>{" "}
+							<span style={{ color: "#991E7B" }}>Charisma</span>
+						</b>
+					</Label>
 				</FormGroup>
 				<Button type="submit" color="success">
 					Edit Character
 				</Button>
 			</Form>
-		</>
+		</div>
 	);
 }

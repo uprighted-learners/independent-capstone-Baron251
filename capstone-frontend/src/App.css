@@ -4,3 +4,13 @@
   
 }
 
+div.backstory.container {
+  display: flex;
+}
+div.title.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}

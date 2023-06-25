@@ -1,16 +1,37 @@
 .App {
   text-align: center;
   font-family: 'Niconne', cursive;
+  margin: 0;
   
 }
 
 div.backstory.container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  justify-content: space-between;
+  align-items: flex-start;
+
 }
 div.title.container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-
+}
+div.NRLC.container {
+  display: flex;
+  flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+div.stats.container {
+  display: flex
+}
+div.backstory-view.container {
+  display: flex;
+  flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
 }

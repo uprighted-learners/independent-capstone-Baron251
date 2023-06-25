@@ -7,16 +7,23 @@ export default function CharacterFields(props) {
 	}, [props.token]);
 	return (
 		<>
-			<Container style={{ display: "flex", padding: "0px" }}>
-				<Card style={{ width: "20em" }}>
-					<CardText>
+			{/* Character Name */}
+			<Container style={{ display: "flex", padding: "0px", flexDirection: "column" }}>
+				<Card style={{ width: "20em", borderRadius: "15px 15px 15px 15px" }}>
+					<CardTitle style={{ borderRadius: "15px 15px 0px 0px", marginBottom: "0px"}}>
 						<b>Character Name:</b> {props.fields.name}
-					</CardText>
+					</CardTitle>
+				
+					<CardTitle style={{ borderRadius: "0px", marginBottom: "0px"}}>
+						<b>Race:</b> {props.fields.race}
+					</CardTitle>
+				
+					<CardTitle style={{ borderRadius: "0px 0px 15px 15px", marginBottom: "0px"}}><b>Class:</b> {props.fields.cla}</CardTitle>
 				</Card>
 			</Container>
 
 			{/* Proficiency + Level */}
-			<Container>
+			<Container style={{ height: "0px"}}>
 				<Row
 					style={{
 						marginTop: "20px",
@@ -42,7 +49,7 @@ export default function CharacterFields(props) {
 						}}
 					>
 						<CardText>
-							<b>Level:</b> <br />
+							<b>Level:</b>
 							{props.fields.level}
 						</CardText>
 					</Col>
@@ -50,7 +57,7 @@ export default function CharacterFields(props) {
 			</Container>
 
 			{/* Physical Attributes */}
-			<Container style={{ width: "30%", marginRight: "50px" }}>
+			<Container style={{ width: "30%", marginRight: "50px", height: "0px" }}>
 				<Row>
 					<Col
 						className="bg-light border"
@@ -122,23 +129,19 @@ export default function CharacterFields(props) {
 				</Row>
 			</Container>
 
-			{/* Backstory */}
-		
-			
 			{/* Character Stat block */}
-				<Container className="backstory" style={{ width: "100%" }}>
-			<Container style={{ }}>
+			<Container className="backstory-view" style={{  maxWidth: "1900px", width: "1900px", height: "657px"}}>
 				<CharacterStats
 					stats={props.fields.stats}
 					fetchFields={props.fetchFields}
 					token={props.token}
 				/>
-				<Card style={{ padding: "1em" }}>
-					<CardText>
+				{/* Backstory */}
+				<Card style={{ padding: "1em", minHeight: "10em", maxWidth: "30em", marginRight: "125px" }}>
+					<CardText style={{ textAlign: "left"}}>
 						<b>Back Story:</b> {props.fields.backStory}
 					</CardText>
 				</Card>
-			</Container>
 			</Container>
 		</>
 	);

@@ -7,8 +7,11 @@ import {
 	Label,
 	Button,
 	Container,
+	Row,
+	Col,
 } from "reactstrap";
-import background from "../../assets/CharacterCreate-background.jpg"
+import { useNavigate } from "react-router-dom";
+import background from "../../assets/CharacterCreate-background.jpg";
 export default function CharacterCreate(props) {
 	let classList = [
 		null,
@@ -36,6 +39,8 @@ export default function CharacterCreate(props) {
 		"Human",
 		"Tiefling",
 	];
+
+	const navigate = useNavigate();
 
 	const nameRef = useRef();
 	const claRef = useRef();
@@ -112,147 +117,218 @@ export default function CharacterCreate(props) {
 			const res = await fetch(url, requestOption);
 			const data = await res.json();
 			console.log(data);
+			navigate("/character");
 		} catch (err) {
 			console.error(err);
 		}
 	};
 
 	return (
-		<div style={{ backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-			<h1>Creating your Character</h1>
-			<Form onSubmit={handleSubmit} style={{ height: "55.04em"}}>
+		<div
+			style={{
+				backgroundImage: `url(${background})`,
+				backgroundRepeat: "no-repeat",
+				backgroundSize: "cover",
+			}}
+		>
+			<Container
+				className="title"
+				style={{
+					color: "#F5A300",
+					backgroundColor: "rgba(52, 52, 52, 0.65)",
+					width: "25%",
+					borderRadius: "5px",
+				}}
+			>
+				<h1>Creating your Character</h1>
+			</Container>
 
+			<Form onSubmit={handleSubmit} style={{ height: "55.04em" }}>
 				<Container style={{ display: "flex" }}>
-
 					<FormGroup>
-						<Label style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-							
-						}}>Character Name</Label>
-						<Input innerRef={nameRef} autoComplete="off" type="text" required placeholder="Name" />
-					</FormGroup>
-
-					<FormGroup>
-						<Label style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-							
-						}}>Class</Label>
-						<Input innerRef={claRef} type="select" required>
-							{classList.map((clas, i) => (
-								<option key={i} value={clas}>
-									{clas}
+						<Row>
+							<Col>
+								<Label
+									style={{
+										backgroundColor: "rgba(52, 52, 52, 0.65)",
+										color: "#F5A300",
+										width: "100px",
+										borderRadius: "5px",
+									}}
+								>
+									Character Name
+								</Label>
+								<Input
+									innerRef={nameRef}
+									autoComplete="off"
+									type="text"
+									required
+									placeholder="Name"
+								/>
+							</Col>
+							<Col>
+								<Label
+									style={{
+										backgroundColor: "rgba(52, 52, 52, 0.65)",
+										color: "#F5A300",
+										width: "100px",
+										borderRadius: "5px",
+									}}
+								>
+									Class
+								</Label>
+								<Input innerRef={claRef} type="select" required>
+									{classList.map((clas, i) => (
+										<option key={i} value={clas}>
+											{clas}
+										</option>
+									))}
+								</Input>
+							</Col>
+						</Row>
+						<Row style={{ paddingTop: "5px"}}>
+							<Col>
+						<Label
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								color: "#F5A300",
+								width: "100px",
+								borderRadius: "5px",
+							}}
+						>
+							Race
+						</Label>
+						<Input innerRef={raceRef} type="select" required>
+							{raceList.map((rac, i) => (
+								<option key={i} value={rac}>
+									{rac}
 								</option>
 							))}
 						</Input>
+						</Col>
+						<Col>
+						<Label
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								color: "#F5A300",
+								width: "100px",
+								borderRadius: "5px",
+							}}
+						>
+							Level
+						</Label>
+						<Input
+							innerRef={levelRef}
+							type="number"
+							max={"20"}
+							min={"1"}
+							required
+						/>
+						</Col>
+						</Row>
 					</FormGroup>
 
-				</Container>
+			{/* Physical traits */}
+				<FormGroup>
+					<Container>
+					<Label
+						style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+						}}
+						>
+						Physical Traits
+					</Label>
 
-				<FormGroup>
-					<Label style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-							
-						}}>Race</Label>
-					<Input innerRef={raceRef} type="select" required>
-						{raceList.map((rac, i) => (
-							<option key={i} value={rac}>
-								{rac}
-							</option>
-						))}
-					</Input>
-				</FormGroup>
-				<FormGroup>
-					<Label style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-							
-						}}>Level</Label>
-					<Input
-						innerRef={levelRef}
-						type="number"
-						max={"20"}
-						min={"1"}
-						required
-					/>
-				</FormGroup>
-				<FormGroup>
-					<Label style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-							
-						}}>Backstory</Label>
-					<Input innerRef={backStoryRef} type="textarea" placeholder="Backstory" />
-				</FormGroup>
-				<FormGroup >
-					<Label style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-							
-						}}>Physical Traits</Label>
 					<InputGroup>
+					<Row>
+						<Col style={{ padding: "0px"}}>
 						<Input
 							innerRef={ageRef}
 							type="number"
 							min={1}
 							required
 							placeholder="Age"
-						/>
+							/>
+							</Col>
+							<Col style={{ padding: "0px"}}>
 						<Input
 							innerRef={hairRef}
 							type="string"
 							required
 							placeholder="Hair Color"
-						/>
+							/>
+							</Col>
+							<Col style={{ padding: "0px"}}>
 						<Input
 							innerRef={eyesRef}
 							type="string"
 							required
 							placeholder="Eye Color"
-						/>
+							/>
+							</Col>
+							</Row>
+							<Row>
+								<Col style={{ padding: "0px"}}>
 						<Input
 							innerRef={weightRef}
 							type="number"
 							required
 							min={1}
 							placeholder="lbs"
-						/>
+							/>
+							</Col>
+							<Col style={{ padding: "0px"}}>
 						<Input
 							innerRef={skinRef}
 							type="string"
 							required
 							placeholder="Skin color"
-						/>
+							/>
+							</Col>
+							<Col style={{ padding: "0px"}}>
 						<Input
 							innerRef={heightRef}
 							type="string"
 							required
 							placeholder="Height"
-						/>
+							/>
+							</Col>
+							</Row>
 					</InputGroup>
+					</Container>
 				</FormGroup>
-				<FormGroup >
-					<Label style={{
+					</Container>
+				<FormGroup>
+					<Label
+						style={{
 							backgroundColor: "rgba(52, 52, 52, 0.65)",
 							color: "#F5A300",
 							width: "100px",
 							borderRadius: "5px",
-							
-						}}>Attributes</Label>
+						}}
+						>
+						Backstory
+					</Label>
+					<Input
+						innerRef={backStoryRef}
+						type="textarea"
+						placeholder="Backstory"
+					/>
+				</FormGroup>
+				<FormGroup>
+					<Label
+						style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+						}}
+					>
+						Attributes
+					</Label>
 					<InputGroup>
 						<Input
 							innerRef={strengthRef}
@@ -292,7 +368,9 @@ export default function CharacterCreate(props) {
 						/>
 					</InputGroup>
 				</FormGroup>
-				<Button type="submit" color="success">Create Character</Button>
+				<Button type="submit" color="success">
+					Create Character
+				</Button>
 			</Form>
 		</div>
 	);

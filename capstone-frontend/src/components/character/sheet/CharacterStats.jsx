@@ -33,14 +33,14 @@ export default function CharacterStats(props) {
 	return (
 		<>
 		
-			<Container
+			{/* <Container
 				style={{
 					display: "flex",
 					padding: "0px"
 									
 				}}
-			>
-				<Row>
+			> */}
+				<Row style={{ marginLeft: "195px" }}>
 					<Col>
 						<CardColumns>
 							<Card>
@@ -124,7 +124,7 @@ export default function CharacterStats(props) {
 						</CardColumns>
 					</Col>
 				</Row>
-			</Container>
+			{/* </Container> */}
 		</>
 	);
 }

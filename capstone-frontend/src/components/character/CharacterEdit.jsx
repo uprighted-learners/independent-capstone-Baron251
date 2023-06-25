@@ -8,6 +8,8 @@ import {
 	Label,
 	Button,
 	InputGroup,
+	Row,
+	Col,
 } from "reactstrap";
 import background from "../../assets/CharacterEdit-background.jpg";
 
@@ -168,243 +170,291 @@ export default function CharacterEdit(props) {
 	}
 
 	return (
-		<div style={{ backgroundImage: `url(${background})`, height: "58.55em", paddingTop: "50px" }}>
-			<Container className="title" >
-			<h1 style={{ color: "#F5A300", backgroundColor: "rgba(52, 52, 52, 0.65)", width: "25%", borderRadius: "5px"}}>Edit your Character</h1>
+		<div
+			style={{
+				backgroundImage: `url(${background})`,
+				height: "58.55em",
+				paddingTop: "50px",
+			}}
+		>
+			<Container className="title">
+				<h1
+					style={{
+						color: "#F5A300",
+						backgroundColor: "rgba(52, 52, 52, 0.65)",
+						width: "25%",
+						borderRadius: "5px",
+					}}
+				>
+					Edit your Character
+				</h1>
 			</Container>
 			<Form onSubmit={handleSubmit}>
-				<Container style={{ display: "flex" }}>
+				<Container className="NRLC">
 					<FormGroup>
-						<Label
-							style={{
-								backgroundColor: "rgba(52, 52, 52, 0.65)",
-								color: "#F5A300",
-								width: "100px",
-								borderRadius: "5px",
-							}}
-						>
-							Character Name
-						</Label>
-						<Input 
-							value={characterName}
-							onChange={(e) => setCharacterName(e.target.value)}
-							autoComplete="off"
-							type="text"
-						/>
+						<Row>
+							{/* Character Name */}
+							<Col>
+								<Label
+									style={{
+										backgroundColor: "rgba(52, 52, 52, 0.65)",
+										color: "#F5A300",
+										width: "100px",
+										borderRadius: "5px",
+									}}
+								>
+									Character Name
+								</Label>
+								<Input
+									value={characterName}
+									onChange={(e) => setCharacterName(e.target.value)}
+									autoComplete="off"
+									type="text"
+								/>
+							</Col>
+							{/* Class */}
+							<Col>
+								<Label
+									style={{
+										backgroundColor: "rgba(52, 52, 52, 0.65)",
+										color: "#F5A300",
+										width: "100px",
+										borderRadius: "5px",
+									}}
+								>
+									Class
+								</Label>
+								<Input
+									value={characterCla}
+									onChange={(e) => setCharacterCla(e.target.value)}
+									type="select"
+								>
+									{classList.map((clas, i) => (
+										<option key={i} value={clas}>
+											{clas}
+										</option>
+									))}
+								</Input>
+							</Col>
+						</Row>
+						<Row style={{ paddingTop: "5px" }}>
+							{/* Race */}
+							<Col>
+								<Label
+									style={{
+										backgroundColor: "rgba(52, 52, 52, 0.65)",
+										color: "#F5A300",
+										width: "100px",
+										borderRadius: "5px",
+									}}
+								>
+									Race
+								</Label>
+
+								<Input
+									value={characterRace}
+									onChange={(e) => setCharacterRace(e.target.value)}
+									type="select"
+								>
+									{raceList.map((rac, i) => (
+										<option key={i} value={rac}>
+											{rac}
+										</option>
+									))}
+								</Input>
+							</Col>
+
+							{/* Level */}
+							<Col>
+								<Label
+									style={{
+										backgroundColor: "rgba(52, 52, 52, 0.65)",
+										color: "#F5A300",
+										width: "100px",
+										borderRadius: "5px",
+									}}
+								>
+									Level
+								</Label>
+								<Input
+									value={characterLevel}
+									onChange={(e) => setCharacterLevel(e.target.value)}
+									type="number"
+									max={"20"}
+									min={"1"}
+								/>
+							</Col>
+						</Row>
 					</FormGroup>
 
+					{/* Physical Attributes */}
 					<FormGroup>
-						<Label
-							style={{
-								backgroundColor: "rgba(52, 52, 52, 0.65)",
-								color: "#F5A300",
-								width: "100px",
-								borderRadius: "5px",
-							}}
-						>
-							Class
-						</Label>
-						<Input
-							value={characterCla}
-							onChange={(e) => setCharacterCla(e.target.value)}
-							type="select"
-						>
-							{classList.map((clas, i) => (
-								<option key={i} value={clas}>
-									{clas}
-								</option>
-							))}
-						</Input>
+						<Container>
+							<Label
+								style={{
+									backgroundColor: "rgba(52, 52, 52, 0.65)",
+									color: "#F5A300",
+									width: "100px",
+									borderRadius: "5px",
+								}}
+							>
+								Physical Traits
+							</Label>
+
+							<Row>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "5px 0px 0px 0px" }}
+										value={characterAge}
+										onChange={(e) => setCharacterAge(e.target.value)}
+										type="number"
+										min={1}
+										placeholder="Age"
+									/>
+								</Col>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "0px" }}
+										value={characterHair}
+										onChange={(e) => setCharacterHair(e.target.value)}
+										type="string"
+										placeholder="Hair Color"
+									/>
+								</Col>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "0px 5px 0px 0px" }}
+										value={characterEyes}
+										onChange={(e) => setCharacterEyes(e.target.value)}
+										type="string"
+										placeholder="Eye Color"
+									/>
+								</Col>
+							</Row>
+							<Row>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "0px 0px 0px 5px" }}
+										value={characterWeight}
+										onChange={(e) => setCharacterWeight(e.target.value)}
+										type="number"
+										min={1}
+										placeholder="lbs"
+									/>
+								</Col>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "0px 0px 0px 0px" }}
+										value={characterSkin}
+										onChange={(e) => setCharacterSkin(e.target.value)}
+										type="string"
+										placeholder="Skin color"
+									/>
+								</Col>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "0px 0px 5px 0px" }}
+										value={characterHeight}
+										onChange={(e) => setCharacterHeight(e.target.value)}
+										type="string"
+										placeholder="Height"
+									/>
+								</Col>
+							</Row>
+						</Container>
 					</FormGroup>
 				</Container>
 
-				<FormGroup>
-					<Label
-						style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-							
-						}}
-					>
-						Race
-					</Label>
-
-
-
-
-
-
-
-					{/** REDUCE THE WIDTH OF THE INPUTS MAYBE PUT A CONTAINER ON THEM. MAYBE. **/}
-					<Input
-						style={{ width: "25%"}}
-						value={characterRace}
-						onChange={(e) => setCharacterRace(e.target.value)}
-						type="select"
-					>
-						{raceList.map((rac, i) => (
-							<option key={i} value={rac}>
-								{rac}
-							</option>
-						))}
-					</Input>
-				</FormGroup>
-				<FormGroup>
-					<Label
-						style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-						}}
-					>
-						Level
-					</Label>
-					<Input
-						value={characterLevel}
-						onChange={(e) => setCharacterLevel(e.target.value)}
-						type="number"
-						max={"20"}
-						min={"1"}
-					/>
-				</FormGroup>
-				<FormGroup>
-					<Label
-						style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-						}}
-					>
-						Backstory
-					</Label>
-					<Input
-						value={characterBackStory}
-						onChange={(e) => setCharacterBackStory(e.target.value)}
-						type="textarea"
-					/>
-				</FormGroup>
-				<FormGroup>
-					<Label
-						style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-						}}
-					>
-						Physical Traits
-					</Label>
-					<InputGroup>
+			
+				{/* Backstory */}
+				<Container className="backstory" style={{ height: "20em" }}>
+				<FormGroup style={{ width: "50%"}}>
+					{/* Stats */}
+						<Label
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								color: "#F5A300",
+								width: "100px",
+								borderRadius: "5px",
+							}}
+						>
+							Attributes
+						</Label>
+						<InputGroup>
+							<Input
+								value={characterStrength}
+								onChange={(e) => setCharacterStrength(e.target.value)}
+								type="number"
+								placeholder="Strength"
+							/>
+							<Input
+								value={characterDexterity}
+								onChange={(e) => setCharacterDexterity(e.target.value)}
+								type="number"
+								placeholder="Dexterity"
+							/>
+							<Input
+								value={characterConstitution}
+								onChange={(e) => setCharacterConstitution(e.target.value)}
+								type="number"
+								placeholder="Constitution"
+							/>
+							<Input
+								value={characterIntelligence}
+								onChange={(e) => setCharacterIntelligence(e.target.value)}
+								type="number"
+								placeholder="Intelligence"
+							/>
+							<Input
+								value={characterWisdom}
+								onChange={(e) => setCharacterWisdom(e.target.value)}
+								type="number"
+								placeholder="Wisdom"
+							/>
+							<Input
+								value={characterCharisma}
+								onChange={(e) => setCharacterCharisma(e.target.value)}
+								type="number"
+								placeholder="Charisma"
+							/>
+						</InputGroup>
+						<Label
+							style={{
+								wordSpacing: "50px",
+								backgroundColor: "rgba(52, 52, 52, 1)",
+								width: "40em",
+								borderRadius: "5px"
+							}}
+						>
+							<b>
+								<span style={{ color: "#AC2C0C" }}>Strength</span>{" "}
+								<span style={{ color: "#21C056" }}>Dexterity</span>{" "}
+								<span style={{ color: "#C36609" }}>Constitution</span>{" "}
+								<span style={{ color: "#018FB7" }}>Intelligence</span>{" "}
+								<span style={{ color: "white" }}>Wisdom</span>{" "}
+								<span style={{ color: "#991E7B" }}>Charisma</span>
+							</b>
+						</Label>
+					</FormGroup>
+					<FormGroup>
+						<Label
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								color: "#F5A300",
+								width: "100px",
+								borderRadius: "5px",
+							}}
+						>
+							Backstory
+						</Label>
 						<Input
-							value={characterAge}
-							onChange={(e) => setCharacterAge(e.target.value)}
-							type="number"
-							min={1}
-							placeholder="Age"
+							style={{ width: "30em", maxHeight: "10em", minHeight: "10em" }}
+							value={characterBackStory}
+							onChange={(e) => setCharacterBackStory(e.target.value)}
+							type="textarea"
 						/>
-						<Input
-							value={characterHair}
-							onChange={(e) => setCharacterHair(e.target.value)}
-							type="string"
-							placeholder="Hair Color"
-						/>
-						<Input
-							value={characterEyes}
-							onChange={(e) => setCharacterEyes(e.target.value)}
-							type="string"
-							placeholder="Eye Color"
-						/>
-						<Input
-							value={characterWeight}
-							onChange={(e) => setCharacterWeight(e.target.value)}
-							type="number"
-							min={1}
-							placeholder="lbs"
-						/>
-						<Input
-							value={characterSkin}
-							onChange={(e) => setCharacterSkin(e.target.value)}
-							type="string"
-							placeholder="Skin color"
-						/>
-						<Input
-							value={characterHeight}
-							onChange={(e) => setCharacterHeight(e.target.value)}
-							type="string"
-							placeholder="Height"
-						/>
-					</InputGroup>
-				</FormGroup>
-				<FormGroup>
-					<Label
-						style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-						}}
-					>
-						Attributes
-					</Label>
-					<InputGroup>
-						<Input
-							value={characterStrength}
-							onChange={(e) => setCharacterStrength(e.target.value)}
-							type="number"
-							placeholder="Strength"
-						/>
-						<Input
-							value={characterDexterity}
-							onChange={(e) => setCharacterDexterity(e.target.value)}
-							type="number"
-							placeholder="Dexterity"
-						/>
-						<Input
-							value={characterConstitution}
-							onChange={(e) => setCharacterConstitution(e.target.value)}
-							type="number"
-							placeholder="Constitution"
-						/>
-						<Input
-							value={characterIntelligence}
-							onChange={(e) => setCharacterIntelligence(e.target.value)}
-							type="number"
-							placeholder="Intelligence"
-						/>
-						<Input
-							value={characterWisdom}
-							onChange={(e) => setCharacterWisdom(e.target.value)}
-							type="number"
-							placeholder="Wisdom"
-						/>
-						<Input
-							value={characterCharisma}
-							onChange={(e) => setCharacterCharisma(e.target.value)}
-							type="number"
-							placeholder="Charisma"
-						/>
-					</InputGroup>
-					<Label
-						style={{
-							wordSpacing: "250px",
-							backgroundColor: "rgba(52, 52, 52, 1)",
-							width: "1800px",
-						}}
-					>
-						<b>
-							<span style={{ color: "#AC2C0C" }}>Strength</span>{" "}
-							<span style={{ color: "#21C056" }}>Dexterity</span>{" "}
-							<span style={{ color: "#C36609" }}>Constitution</span>{" "}
-							<span style={{ color: "#018FB7" }}>Intelligence</span>{" "}
-							<span style={{ color: "white" }}>Wisdom</span>{" "}
-							<span style={{ color: "#991E7B" }}>Charisma</span>
-						</b>
-					</Label>
-				</FormGroup>
+					</FormGroup>
+				</Container>
 				<Button type="submit" color="success">
 					Edit Character
 				</Button>

@@ -64,7 +64,7 @@ export default function CharacterSheet(props) {
 
 	return (
 		<div
-			style={{ backgroundImage: `url(${background})`, backgroundSize: "cover" }}
+			style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", width: "100vw", height: "100vh"}}
 		>
 			<Row>
 				<Col xs="1">
@@ -80,7 +80,7 @@ export default function CharacterSheet(props) {
 			</Row>
 			<Row>
 				<Col xs="1">
-					<Button onClick={() => navigate(`/character/edit/${id}`)}>
+					<Button onClick={() => navigate(`/character/edit/${id}`)} color="warning" style={{ backgroundColor: "rgba(52, 52, 52, 0)"}}>
 						Edit Character
 					</Button>
 				</Col>

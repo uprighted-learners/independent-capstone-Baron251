@@ -143,8 +143,8 @@ export default function CharacterCreate(props) {
 				<h1>Creating your Character</h1>
 			</Container>
 
-			<Form onSubmit={handleSubmit} style={{ height: "55.04em" }}>
-				<Container style={{ display: "flex" }}>
+			<Form onSubmit={handleSubmit} style={{ height: "55.04em", paddingTop: "100px"}}>
+				<Container className="NRLC">
 					<FormGroup>
 						<Row>
 							<Col>
@@ -242,10 +242,10 @@ export default function CharacterCreate(props) {
 						Physical Traits
 					</Label>
 
-					<InputGroup>
+					
 					<Row>
 						<Col style={{ padding: "0px"}}>
-						<Input
+						<Input style={{ borderRadius: "5px 0px 0px 0px"}}						
 							innerRef={ageRef}
 							type="number"
 							min={1}
@@ -254,16 +254,14 @@ export default function CharacterCreate(props) {
 							/>
 							</Col>
 							<Col style={{ padding: "0px"}}>
-						<Input
-							innerRef={hairRef}
+						<Input style={{ borderRadius: "0px 0px 0px 0px"}}							innerRef={hairRef}
 							type="string"
 							required
 							placeholder="Hair Color"
 							/>
 							</Col>
 							<Col style={{ padding: "0px"}}>
-						<Input
-							innerRef={eyesRef}
+						<Input style={{ borderRadius: "0px 5px 0px 0px"}}							innerRef={eyesRef}
 							type="string"
 							required
 							placeholder="Eye Color"
@@ -272,8 +270,7 @@ export default function CharacterCreate(props) {
 							</Row>
 							<Row>
 								<Col style={{ padding: "0px"}}>
-						<Input
-							innerRef={weightRef}
+						<Input style={{ borderRadius: "0px 0px 0px 5px"}}							innerRef={weightRef}
 							type="number"
 							required
 							min={1}
@@ -281,44 +278,30 @@ export default function CharacterCreate(props) {
 							/>
 							</Col>
 							<Col style={{ padding: "0px"}}>
-						<Input
-							innerRef={skinRef}
+						<Input style={{ borderRadius: "0px 0px 0px 0px"}}							innerRef={skinRef}
 							type="string"
 							required
 							placeholder="Skin color"
 							/>
 							</Col>
 							<Col style={{ padding: "0px"}}>
-						<Input
-							innerRef={heightRef}
+						<Input style={{ borderRadius: "0px 0px 5px 0px"}}							innerRef={heightRef}
 							type="string"
 							required
 							placeholder="Height"
 							/>
 							</Col>
 							</Row>
-					</InputGroup>
+					
 					</Container>
 				</FormGroup>
 					</Container>
-				<FormGroup>
-					<Label
-						style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-						}}
-						>
-						Backstory
-					</Label>
-					<Input
-						innerRef={backStoryRef}
-						type="textarea"
-						placeholder="Backstory"
-					/>
-				</FormGroup>
-				<FormGroup>
+
+					{/* Backstory */}
+					<Container className="backstory" style={{ height: "20em"}}>
+			
+				<FormGroup style={{ width: "50%"}}>
+					{/* Stats */}
 					<Label
 						style={{
 							backgroundColor: "rgba(52, 52, 52, 0.65)",
@@ -367,7 +350,49 @@ export default function CharacterCreate(props) {
 							placeholder="Charisma"
 						/>
 					</InputGroup>
+					<Label
+							style={{
+								wordSpacing: "50px",
+								backgroundColor: "rgba(52, 52, 52, 1)",
+								width: "40em",
+								borderRadius: "5px"
+							}}
+						>
+							<b>
+								<span style={{ color: "#AC2C0C" }}>Strength</span>{" "}
+								<span style={{ color: "#21C056" }}>Dexterity</span>{" "}
+								<span style={{ color: "#C36609" }}>Constitution</span>{" "}
+								<span style={{ color: "#018FB7" }}>Intelligence</span>{" "}
+								<span style={{ color: "white" }}>Wisdom</span>{" "}
+								<span style={{ color: "#991E7B" }}>Charisma</span>
+							</b>
+						</Label>
 				</FormGroup>
+
+
+				<FormGroup>
+					<Label
+						style={{
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
+							width: "100px",
+							borderRadius: "5px",
+						}}
+						>
+						Backstory
+					</Label>
+					<Input
+					style={{ width: "30em", maxHeight: "10em", minHeight: "10em" }}
+						innerRef={backStoryRef}
+						type="textarea"
+						placeholder="Backstory"
+					/>
+				</FormGroup>
+
+
+
+
+				</Container>
 				<Button type="submit" color="success">
 					Create Character
 				</Button>

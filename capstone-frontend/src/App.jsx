@@ -10,7 +10,7 @@ import CharacterEdit from './components/character/CharacterEdit';
 
 function App() {
   const [sessionToken, setSessionToken] = useState("")
- 
+  
 
   const updateToken = (newToken) => {
     localStorage.setItem("token", newToken);
@@ -22,6 +22,7 @@ function App() {
       setSessionToken(localStorage.getItem("token"));
     }
   }, [])
+  console.log("This is the token",sessionToken)
   return (
     <div className="App">
       {sessionToken !== "" ?

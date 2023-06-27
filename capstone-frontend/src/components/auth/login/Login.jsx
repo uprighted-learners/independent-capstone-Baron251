@@ -29,8 +29,9 @@ export default function Login({ updateToken }) {
 
 		if(data.message === `Login Successful!`){
 			updateToken(data.token)
+			console.log(data.user)
 			navigate("/character");
-			alert(`Welcome ${data.user.userName}`)
+			// alert(`Welcome ${data.user.userName}`)
 		} else {
 			alert(data.message)
 		}

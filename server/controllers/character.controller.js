@@ -61,6 +61,25 @@ router.get("/", validateSession, async (req, res) => {
 	}
 });
 
+//TODO GET All by ID
+router.get("/:owner_id", validateSession, async (req, res) => {
+	try {
+		const { owner_id } = req.params;
+
+		const getCharacters = await Character.find({ owner_id: owner_id})
+
+		getCharacters.length > 0
+		? res.status(200).json({
+			getCharacters
+		})
+		: res.status(404).json({
+			message: `No characters made yet`
+		})
+	} catch (err) {
+	console.log(err)		
+	}
+})
+
 //TODO GET One
 router.get("/:id", validateSession, async (req, res) => {
 	try {

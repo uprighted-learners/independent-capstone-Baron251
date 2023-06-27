@@ -13,10 +13,6 @@ import {
 } from "reactstrap";
 import background from "../../assets/CharacterEdit-background.jpg";
 
-const red = "#AC2C0C";
-
-const str = `${red}Strength`;
-
 export default function CharacterEdit(props) {
 	const { id } = useParams();
 	const navigate = useNavigate();
@@ -365,11 +361,10 @@ export default function CharacterEdit(props) {
 					</FormGroup>
 				</Container>
 
-			
 				{/* Backstory */}
 				<Container className="backstory" style={{ height: "20em" }}>
-				<FormGroup style={{ width: "50%"}}>
-					{/* Stats */}
+					<FormGroup style={{ width: "50%" }}>
+						{/* Stats */}
 						<Label
 							style={{
 								backgroundColor: "rgba(52, 52, 52, 0.65)",
@@ -423,7 +418,7 @@ export default function CharacterEdit(props) {
 								wordSpacing: "50px",
 								backgroundColor: "rgba(52, 52, 52, 1)",
 								width: "40em",
-								borderRadius: "5px"
+								borderRadius: "5px",
 							}}
 						>
 							<b>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import jwt_decode from "jwt-decode";
 import CharacterTable from "./CharacterTable";
 import {
 	Col,
@@ -10,14 +11,16 @@ import {
 	Button,
 } from "reactstrap";
 import background from '../../assets/CharacterIndex-background.jpg'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function CharacterIndex(props) {
-	
+	const decoded = props.token ? jwt_decode(props.token) : ""
+	console.log("Decoded Token", decoded.id)
+	const owner_id = decoded.id
 	const [characters, setCharacters] = useState([]);
 	const navigate = useNavigate();
 	const fetchCharacters = async () => {
-		const url = "http://localhost:4000/character/";
+		const url = `http://localhost:4000/character/${owner_id}`;
 
 		const requestOptions = {
 			method: "GET",
@@ -29,7 +32,7 @@ export default function CharacterIndex(props) {
 		try {
 			const res = await fetch(url, requestOptions);
 			const data = await res.json();
-			setCharacters(data.getAllCharacters);
+			setCharacters(data.getCharacters);
 		} catch (err) {
 			console.log(err);
 		}

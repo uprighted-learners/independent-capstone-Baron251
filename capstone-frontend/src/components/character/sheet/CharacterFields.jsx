@@ -5,51 +5,69 @@ export default function CharacterFields(props) {
 	useEffect(() => {
 		props.fetchFields();
 	}, [props.token]);
+	console.log(props.fields);
 	return (
 		<>
 			{/* Character Name */}
-			<Container style={{ display: "flex", padding: "0px", flexDirection: "column" }}>
-				<Card style={{ width: "20em", borderRadius: "15px 15px 15px 15px" }}>
-					<CardTitle style={{ borderRadius: "15px 15px 0px 0px", marginBottom: "0px"}}>
+			<Container
+				style={{ display: "flex", padding: "0px", flexDirection: "column" }}
+			>
+				<Card
+					style={{
+						width: "20em",
+						borderRadius: "15px 15px 15px 15px",
+						backgroundColor: "rgba(52, 52, 52, 0.65)",
+						color: "#F5A300",
+					}}
+				>
+					<CardTitle
+						style={{ borderRadius: "15px 15px 0px 0px", marginBottom: "0px" }}
+					>
 						<b>Character Name:</b> {props.fields.name}
 					</CardTitle>
-				
-					<CardTitle style={{ borderRadius: "0px", marginBottom: "0px"}}>
+
+					<CardTitle style={{ borderRadius: "0px", marginBottom: "0px" }}>
 						<b>Race:</b> {props.fields.race}
 					</CardTitle>
-				
-					<CardTitle style={{ borderRadius: "0px 0px 15px 15px", marginBottom: "0px"}}><b>Class:</b> {props.fields.cla}</CardTitle>
+
+					<CardTitle
+						style={{ borderRadius: "0px 0px 15px 15px", marginBottom: "0px" }}
+					>
+						<b>Class:</b> {props.fields.cla}
+					</CardTitle>
 				</Card>
 			</Container>
 
 			{/* Proficiency + Level */}
-			<Container style={{ height: "0px"}}>
+			<Container style={{ height: "0px" }}>
 				<Row
 					style={{
 						marginTop: "20px",
 						width: "24.68%",
+						backgroundColor: "rgba(52, 52, 52, 0.65)",
+						color: "#F5A300",
 					}}
 				>
 					<Col
-						className="bg-light border"
 						style={{
 							borderRadius: "5px 0px 0px 5px",
 							width: "50%",
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
 						}}
 					>
-						<CardText>
+						<CardText style={{ color: "#F5A300" }}>
 							<b>Proficiency Bonus: </b>
 						</CardText>
 					</Col>
 					<Col
-						className="bg-light border"
 						style={{
 							borderRadius: "0px 5px 5px 0px",
 							width: "50%",
 						}}
 					>
 						<CardText>
-							<b>Level:</b>
+							<b>Level: </b>
 							{props.fields.level}
 						</CardText>
 					</Col>
@@ -60,10 +78,11 @@ export default function CharacterFields(props) {
 			<Container style={{ width: "30%", marginRight: "50px", height: "0px" }}>
 				<Row>
 					<Col
-						className="bg-light border"
 						style={{
 							borderRadius: "5px 0px 0px 0px",
 							width: "50%",
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
 						}}
 					>
 						<CardText>
@@ -71,9 +90,10 @@ export default function CharacterFields(props) {
 						</CardText>
 					</Col>
 					<Col
-						className="bg-light border"
 						style={{
 							width: "50%",
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
 						}}
 					>
 						<CardText>
@@ -81,10 +101,11 @@ export default function CharacterFields(props) {
 						</CardText>
 					</Col>
 					<Col
-						className="bg-light border"
 						style={{
 							borderRadius: "0px 5px 0px 0px",
 							width: "50%",
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
 						}}
 					>
 						<CardText>
@@ -95,10 +116,11 @@ export default function CharacterFields(props) {
 
 				<Row>
 					<Col
-						className="bg-light border"
 						style={{
 							borderRadius: "0px 0px 0px 5px",
 							width: "50%",
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
 						}}
 					>
 						<CardText>
@@ -106,9 +128,10 @@ export default function CharacterFields(props) {
 						</CardText>
 					</Col>
 					<Col
-						className="bg-light border"
 						style={{
 							width: "50%",
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
 						}}
 					>
 						<CardText>
@@ -116,10 +139,11 @@ export default function CharacterFields(props) {
 						</CardText>
 					</Col>
 					<Col
-						className="bg-light border"
 						style={{
 							borderRadius: "0px 0px 5px 0px",
 							width: "50%",
+							backgroundColor: "rgba(52, 52, 52, 0.65)",
+							color: "#F5A300",
 						}}
 					>
 						<CardText>
@@ -130,15 +154,25 @@ export default function CharacterFields(props) {
 			</Container>
 
 			{/* Character Stat block */}
-			<Container className="backstory-view" style={{  maxWidth: "1900px", width: "1900px", height: "657px"}}>
+			<Container
+				className="backstory-view"
+				style={{ maxWidth: "1900px", width: "1900px", height: "657px" }}
+			>
 				<CharacterStats
 					stats={props.fields.stats}
 					fetchFields={props.fetchFields}
 					token={props.token}
 				/>
 				{/* Backstory */}
-				<Card style={{ padding: "1em", minHeight: "10em", maxWidth: "30em", marginRight: "125px" }}>
-					<CardText style={{ textAlign: "left"}}>
+				<Card
+					style={{
+						padding: "1em",
+						minHeight: "10em",
+						maxWidth: "30em",
+						marginRight: "125px", backgroundColor: "rgba(52, 52, 52, 0.5)", color: "#F5A300"
+					}}
+				>
+					<CardText style={{ textAlign: "left", }}>
 						<b>Back Story:</b> {props.fields.backStory}
 					</CardText>
 				</Card>

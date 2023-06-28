@@ -422,12 +422,12 @@ export default function CharacterEdit(props) {
 							}}
 						>
 							<b>
-								<span style={{ color: "#AC2C0C" }}>Strength</span>{" "}
+								<span style={{ color: "#E53B10" }}>Strength</span>{" "}
 								<span style={{ color: "#21C056" }}>Dexterity</span>{" "}
 								<span style={{ color: "#C36609" }}>Constitution</span>{" "}
 								<span style={{ color: "#018FB7" }}>Intelligence</span>{" "}
 								<span style={{ color: "white" }}>Wisdom</span>{" "}
-								<span style={{ color: "#991E7B" }}>Charisma</span>
+								<span style={{ color: "#AD7CD8" }}>Charisma</span>
 							</b>
 						</Label>
 					</FormGroup>

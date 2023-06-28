@@ -20,7 +20,7 @@ export default function CharacterIndex(props) {
 	const [characters, setCharacters] = useState([]);
 	const navigate = useNavigate();
 	const fetchCharacters = async () => {
-		const url = `http://localhost:4000/character/${owner_id}`;
+		const url = `http://localhost:4000/character/characters/${owner_id}`;
 
 		const requestOptions = {
 			method: "GET",
@@ -52,14 +52,14 @@ export default function CharacterIndex(props) {
 			<Container>
 				<Row>
 					<Col md="4">
-						<Card style={{marginTop: "15em"}}>
+						<Card style={{marginTop: "15em", backgroundColor: "rgba(52, 52, 52, 0.5)", color: "#F5DFB8" }}>
 							<CardTitle>Create a Character</CardTitle>
 							<CardText>
 								Hit the button below to start creating your new character. Or if
 								you already have a character, look to the right to view, edit or
 								delete one you've already made.
 							</CardText>
-							<Button onClick={handleClick}>Get Started</Button>
+							<Button onClick={handleClick} color="success" outline>Get Started</Button>
 						</Card>
 					</Col>
 					<Col md="8">

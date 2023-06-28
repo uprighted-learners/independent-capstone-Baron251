@@ -62,7 +62,7 @@ router.get("/", validateSession, async (req, res) => {
 });
 
 //TODO GET All by ID
-router.get("/:owner_id", validateSession, async (req, res) => {
+router.get("/characters/:owner_id", validateSession, async (req, res) => {
 	try {
 		const { owner_id } = req.params;
 

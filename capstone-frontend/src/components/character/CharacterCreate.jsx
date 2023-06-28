@@ -143,7 +143,10 @@ export default function CharacterCreate(props) {
 				<h1>Creating your Character</h1>
 			</Container>
 
-			<Form onSubmit={handleSubmit} style={{ height: "55.04em", paddingTop: "100px"}}>
+			<Form
+				onSubmit={handleSubmit}
+				style={{ height: "55.04em", paddingTop: "100px" }}
+			>
 				<Container className="NRLC">
 					<FormGroup>
 						<Row>
@@ -186,212 +189,215 @@ export default function CharacterCreate(props) {
 								</Input>
 							</Col>
 						</Row>
-						<Row style={{ paddingTop: "5px"}}>
+						<Row style={{ paddingTop: "5px" }}>
 							<Col>
-						<Label
-							style={{
-								backgroundColor: "rgba(52, 52, 52, 0.65)",
-								color: "#F5A300",
-								width: "100px",
-								borderRadius: "5px",
-							}}
-						>
-							Race
-						</Label>
-						<Input innerRef={raceRef} type="select" required>
-							{raceList.map((rac, i) => (
-								<option key={i} value={rac}>
-									{rac}
-								</option>
-							))}
-						</Input>
-						</Col>
-						<Col>
-						<Label
-							style={{
-								backgroundColor: "rgba(52, 52, 52, 0.65)",
-								color: "#F5A300",
-								width: "100px",
-								borderRadius: "5px",
-							}}
-						>
-							Level
-						</Label>
-						<Input
-							innerRef={levelRef}
-							type="number"
-							max={"20"}
-							min={"1"}
-							required
-						/>
-						</Col>
+								<Label
+									style={{
+										backgroundColor: "rgba(52, 52, 52, 0.65)",
+										color: "#F5A300",
+										width: "100px",
+										borderRadius: "5px",
+									}}
+								>
+									Race
+								</Label>
+								<Input innerRef={raceRef} type="select" required>
+									{raceList.map((rac, i) => (
+										<option key={i} value={rac}>
+											{rac}
+										</option>
+									))}
+								</Input>
+							</Col>
+							<Col>
+								<Label
+									style={{
+										backgroundColor: "rgba(52, 52, 52, 0.65)",
+										color: "#F5A300",
+										width: "100px",
+										borderRadius: "5px",
+									}}
+								>
+									Level
+								</Label>
+								<Input
+									innerRef={levelRef}
+									type="number"
+									max={"20"}
+									min={"1"}
+									required
+								/>
+							</Col>
 						</Row>
 					</FormGroup>
 
-			{/* Physical traits */}
-				<FormGroup>
-					<Container>
-					<Label
-						style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-						}}
-						>
-						Physical Traits
-					</Label>
+					{/* Physical traits */}
+					<FormGroup>
+						<Container>
+							<Label
+								style={{
+									backgroundColor: "rgba(52, 52, 52, 0.65)",
+									color: "#F5A300",
+									width: "100px",
+									borderRadius: "5px",
+								}}
+							>
+								Physical Traits
+							</Label>
 
-					
-					<Row>
-						<Col style={{ padding: "0px"}}>
-						<Input style={{ borderRadius: "5px 0px 0px 0px"}}						
-							innerRef={ageRef}
-							type="number"
-							min={1}
-							required
-							placeholder="Age"
-							/>
-							</Col>
-							<Col style={{ padding: "0px"}}>
-						<Input style={{ borderRadius: "0px 0px 0px 0px"}}							innerRef={hairRef}
-							type="string"
-							required
-							placeholder="Hair Color"
-							/>
-							</Col>
-							<Col style={{ padding: "0px"}}>
-						<Input style={{ borderRadius: "0px 5px 0px 0px"}}							innerRef={eyesRef}
-							type="string"
-							required
-							placeholder="Eye Color"
-							/>
-							</Col>
+							<Row>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "5px 0px 0px 0px" }}
+										innerRef={ageRef}
+										type="number"
+										min={1}
+										required
+										placeholder="Age"
+									/>
+								</Col>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "0px 0px 0px 0px" }}
+										innerRef={hairRef}
+										type="string"
+										required
+										placeholder="Hair Color"
+									/>
+								</Col>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "0px 5px 0px 0px" }}
+										innerRef={eyesRef}
+										type="string"
+										required
+										placeholder="Eye Color"
+									/>
+								</Col>
 							</Row>
 							<Row>
-								<Col style={{ padding: "0px"}}>
-						<Input style={{ borderRadius: "0px 0px 0px 5px"}}							innerRef={weightRef}
-							type="number"
-							required
-							min={1}
-							placeholder="lbs"
-							/>
-							</Col>
-							<Col style={{ padding: "0px"}}>
-						<Input style={{ borderRadius: "0px 0px 0px 0px"}}							innerRef={skinRef}
-							type="string"
-							required
-							placeholder="Skin color"
-							/>
-							</Col>
-							<Col style={{ padding: "0px"}}>
-						<Input style={{ borderRadius: "0px 0px 5px 0px"}}							innerRef={heightRef}
-							type="string"
-							required
-							placeholder="Height"
-							/>
-							</Col>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "0px 0px 0px 5px" }}
+										innerRef={weightRef}
+										type="number"
+										required
+										min={1}
+										placeholder="lbs"
+									/>
+								</Col>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "0px 0px 0px 0px" }}
+										innerRef={skinRef}
+										type="string"
+										required
+										placeholder="Skin color"
+									/>
+								</Col>
+								<Col style={{ padding: "0px" }}>
+									<Input
+										style={{ borderRadius: "0px 0px 5px 0px" }}
+										innerRef={heightRef}
+										type="string"
+										required
+										placeholder="Height"
+									/>
+								</Col>
 							</Row>
-					
-					</Container>
-				</FormGroup>
-					</Container>
+						</Container>
+					</FormGroup>
+				</Container>
 
-					{/* Backstory */}
-					<Container className="backstory" style={{ height: "20em"}}>
-			
-				<FormGroup style={{ width: "50%"}}>
-					{/* Stats */}
-					<Label
-						style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-						}}
-					>
-						Attributes
-					</Label>
-					<InputGroup>
-						<Input
-							innerRef={strengthRef}
-							type="number"
-							required
-							placeholder="Strength"
-						/>
-						<Input
-							innerRef={dexterityRef}
-							type="number"
-							required
-							placeholder="Dexterity"
-						/>
-						<Input
-							innerRef={constitutionRef}
-							type="number"
-							required
-							placeholder="Constitution"
-						/>
-						<Input
-							innerRef={intelligenceRef}
-							type="number"
-							required
-							placeholder="Intelligence"
-						/>
-						<Input
-							innerRef={wisdomRef}
-							type="number"
-							required
-							placeholder="Wisdom"
-						/>
-						<Input
-							innerRef={charismaRef}
-							type="number"
-							required
-							placeholder="Charisma"
-						/>
-					</InputGroup>
-					<Label
+				{/* Backstory */}
+				<Container className="backstory" style={{ height: "20em" }}>
+					<FormGroup style={{ width: "50%" }}>
+						{/* Stats */}
+						<Label
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								color: "#F5A300",
+								width: "100px",
+								borderRadius: "5px",
+							}}
+						>
+							Attributes
+						</Label>
+						<InputGroup>
+							<Input
+								innerRef={strengthRef}
+								type="number"
+								required
+								
+							/>
+							<Input
+								innerRef={dexterityRef}
+								type="number"
+								required
+								
+							/>
+							<Input
+								innerRef={constitutionRef}
+								type="number"
+								required
+								
+							/>
+							<Input
+								innerRef={intelligenceRef}
+								type="number"
+								required
+								
+							/>
+							<Input
+								innerRef={wisdomRef}
+								type="number"
+								required
+								
+							/>
+							<Input
+								innerRef={charismaRef}
+								type="number"
+								required
+								
+							/>
+						</InputGroup>
+						<Label
 							style={{
 								wordSpacing: "50px",
 								backgroundColor: "rgba(52, 52, 52, 1)",
 								width: "40em",
-								borderRadius: "5px"
+								borderRadius: "5px",
 							}}
 						>
 							<b>
-								<span style={{ color: "#AC2C0C" }}>Strength</span>{" "}
+								<span style={{ color: "#E53B10" }}>Strength</span>{" "}
 								<span style={{ color: "#21C056" }}>Dexterity</span>{" "}
 								<span style={{ color: "#C36609" }}>Constitution</span>{" "}
 								<span style={{ color: "#018FB7" }}>Intelligence</span>{" "}
 								<span style={{ color: "white" }}>Wisdom</span>{" "}
-								<span style={{ color: "#991E7B" }}>Charisma</span>
+								<span style={{ color: "#AD7CD8" }}>Charisma</span>
 							</b>
 						</Label>
-				</FormGroup>
+					</FormGroup>
 
-
-				<FormGroup>
-					<Label
-						style={{
-							backgroundColor: "rgba(52, 52, 52, 0.65)",
-							color: "#F5A300",
-							width: "100px",
-							borderRadius: "5px",
-						}}
+					<FormGroup>
+						<Label
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								color: "#F5A300",
+								width: "100px",
+								borderRadius: "5px",
+							}}
 						>
-						Backstory
-					</Label>
-					<Input
-					style={{ width: "30em", maxHeight: "10em", minHeight: "10em" }}
-						innerRef={backStoryRef}
-						type="textarea"
-						placeholder="Backstory"
-					/>
-				</FormGroup>
-
-
-
-
+							Backstory
+						</Label>
+						<Input
+							style={{ width: "30em", maxHeight: "10em", minHeight: "10em" }}
+							innerRef={backStoryRef}
+							type="textarea"
+							placeholder="Backstory:"
+						/>
+					</FormGroup>
 				</Container>
 				<Button type="submit" color="success">
 					Create Character

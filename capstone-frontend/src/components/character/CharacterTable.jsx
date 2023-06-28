@@ -95,6 +95,7 @@ export default function CharacterTable(props) {
 											<Button
 												onClick={() => deleteCharacter(character._id)}
 												outline
+												color="danger"
 											>
 												Delete Character
 											</Button>

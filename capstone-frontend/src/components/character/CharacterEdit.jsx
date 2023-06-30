@@ -171,6 +171,8 @@ export default function CharacterEdit(props) {
 				backgroundImage: `url(${background})`,
 				height: "58.55em",
 				paddingTop: "50px",
+				backgroundSize: "100vw"
+				// backgroundRepeat: "no-repeat"
 			}}
 		>
 			<Container className="title">
@@ -195,7 +197,7 @@ export default function CharacterEdit(props) {
 									style={{
 										backgroundColor: "rgba(52, 52, 52, 0.65)",
 										color: "#F5A300",
-										width: "100px",
+										width: "160px",
 										borderRadius: "5px",
 									}}
 								>
@@ -290,7 +292,7 @@ export default function CharacterEdit(props) {
 								style={{
 									backgroundColor: "rgba(52, 52, 52, 0.65)",
 									color: "#F5A300",
-									width: "100px",
+									width: "160px",
 									borderRadius: "5px",
 								}}
 							>
@@ -415,7 +417,7 @@ export default function CharacterEdit(props) {
 						</InputGroup>
 						<Label
 							style={{
-								wordSpacing: "50px",
+								wordSpacing: "23px",
 								backgroundColor: "rgba(52, 52, 52, 1)",
 								width: "40em",
 								borderRadius: "5px",

@@ -67,10 +67,10 @@ export default function CharacterSheet(props) {
 		<div
 			style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", width: "100vw", height: "100vh"}}
 		>
-			<Row>
+			<Row style={{ height: "50px"}}>
 				<Col xs="1">
 					<Button
-						style={{ marginTop: "20px" }}
+						style={{ marginTop: "20px", width: "150px" }}
 						color="info"
 						outline
 						onClick={() => navigate(`/character`)}
@@ -79,9 +79,10 @@ export default function CharacterSheet(props) {
 					</Button>
 				</Col>
 			</Row>
-			<Row>
+			
+			<Row style={{height: "50px", paddingTop: "50px"}}>
 				<Col xs="1">
-					<Button onClick={() => navigate(`/character/edit/${id}`)} color="warning" outline>
+					<Button onClick={() => navigate(`/character/edit/${id}`)} color="warning" outline style={{width: "150px"}}>
 						Edit Character
 					</Button>
 				</Col>

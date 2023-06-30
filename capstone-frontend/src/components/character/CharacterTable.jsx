@@ -29,13 +29,14 @@ export default function CharacterTable(props) {
 	console.log("Length of characters",props.characters)
 	return (
 		<>
-			<h1 style={{ color: "#F5DFB8" }}>List of Characters</h1>
+			<h1 style={{ color: "#F5DFB8", paddingBottom: "25px" }}>List of Characters</h1>
 			<Container
 				style={{
 					height: "50em",
 					width: "40em",
 					overflow: "scroll",
 					overflowX: "hidden",
+					background: "transparent"
 				}}
 			>
 				<Table style={{ backgroundColor: "rgba(52, 52, 52, 0)" }}>

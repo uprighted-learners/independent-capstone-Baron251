@@ -48,7 +48,7 @@ export default function CharacterIndex(props) {
 		navigate("/character/creation");
 	};
 	return (
-		<div style={{backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "58.55em"}}>
+		<div style={{backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", height: "100vh"}}>
 			<Container>
 				<Row>
 					<Col md="4">

@@ -2,6 +2,8 @@ import { Card, CardText, CardTitle, Container, Col, Row } from "reactstrap";
 import { useEffect } from "react";
 import CharacterStats from "./CharacterStats";
 export default function CharacterFields(props) {
+	let proficiency = Math.ceil(props.fields.level / 4 + 1);
+
 	useEffect(() => {
 		props.fetchFields();
 	}, [props.token]);
@@ -23,29 +25,30 @@ export default function CharacterFields(props) {
 					<CardTitle
 						style={{ borderRadius: "15px 15px 0px 0px", marginBottom: "0px" }}
 					>
-						<b>Character Name:</b> {props.fields.name}
+						<b>Character Name:</b> <span style={{ color: "#21C056" }}>{props.fields.name}</span>
 					</CardTitle>
 
 					<CardTitle style={{ borderRadius: "0px", marginBottom: "0px" }}>
-						<b>Race:</b> {props.fields.race}
+						<b>Race:</b> <span style={{ color: "#21C056" }}>{props.fields.race}</span>
 					</CardTitle>
 
 					<CardTitle
 						style={{ borderRadius: "0px 0px 15px 15px", marginBottom: "0px" }}
 					>
-						<b>Class:</b> {props.fields.cla}
+						<b>Class:</b> <span style={{ color: "#21C056" }}>{props.fields.cla}</span>
 					</CardTitle>
 				</Card>
 			</Container>
 
 			{/* Proficiency + Level */}
-			<Container style={{ height: "0px" }}>
+			<Container style={{ height: "0px", marginLeft: "19em" }}>
 				<Row
 					style={{
 						marginTop: "20px",
 						width: "24.68%",
 						backgroundColor: "rgba(52, 52, 52, 0.65)",
 						color: "#F5A300",
+						borderRadius: "5px 5px 5px 5px",
 					}}
 				>
 					<Col
@@ -56,8 +59,8 @@ export default function CharacterFields(props) {
 							color: "#F5A300",
 						}}
 					>
-						<CardText style={{ color: "#F5A300" }}>
-							<b>Proficiency Bonus: </b>
+						<CardText style={{ color: "#F5A300", fontSize: "14px" }}>
+							<b>Proficiency Bonus: </b><span style={{ color: "#21C056" }}>+{proficiency}</span>
 						</CardText>
 					</Col>
 					<Col
@@ -66,9 +69,10 @@ export default function CharacterFields(props) {
 							width: "50%",
 						}}
 					>
-						<CardText>
+						<CardText style={{ fontSize: "14px"}}>
 							<b>Level: </b>
-							{props.fields.level}
+							<br/>
+							<span style={{ color: "#21C056" }}>{props.fields.level}</span>
 						</CardText>
 					</Col>
 				</Row>
@@ -86,7 +90,10 @@ export default function CharacterFields(props) {
 						}}
 					>
 						<CardText>
-							<b>Height:</b> {props.fields.physicalAtt.height}
+							
+								<b>Height: </b>
+							
+								<span style={{ color: "#21C056" }}>{props.fields.physicalAtt.height}</span>
 						</CardText>
 					</Col>
 					<Col
@@ -97,7 +104,10 @@ export default function CharacterFields(props) {
 						}}
 					>
 						<CardText>
-							<b>Age:</b> {props.fields.physicalAtt.age}
+							
+								<b>Age: </b>
+							
+								<span style={{ color: "#21C056" }}>{props.fields.physicalAtt.age}</span>
 						</CardText>
 					</Col>
 					<Col
@@ -109,7 +119,7 @@ export default function CharacterFields(props) {
 						}}
 					>
 						<CardText>
-							<b>Hair:</b> {props.fields.physicalAtt.hair}
+							<b>Hair: </b> <span style={{ color: "#21C056" }}>{props.fields.physicalAtt.hair}</span>
 						</CardText>
 					</Col>
 				</Row>
@@ -124,7 +134,7 @@ export default function CharacterFields(props) {
 						}}
 					>
 						<CardText>
-							<b>Skin:</b> {props.fields.physicalAtt.skin}
+							<b>Skin: </b> <span style={{ color: "#21C056" }}>{props.fields.physicalAtt.skin}</span>
 						</CardText>
 					</Col>
 					<Col
@@ -135,7 +145,7 @@ export default function CharacterFields(props) {
 						}}
 					>
 						<CardText>
-							<b>Weight:</b> {props.fields.physicalAtt.weight}
+							<b>Weight: </b> <span style={{ color: "#21C056" }}>{props.fields.physicalAtt.weight}</span>
 						</CardText>
 					</Col>
 					<Col
@@ -147,7 +157,7 @@ export default function CharacterFields(props) {
 						}}
 					>
 						<CardText>
-							<b>Eye Color:</b> {props.fields.physicalAtt.eyes}
+							<b>Eye Color: </b> <span style={{ color: "#21C056" }}>{props.fields.physicalAtt.eyes}</span>
 						</CardText>
 					</Col>
 				</Row>
@@ -156,7 +166,7 @@ export default function CharacterFields(props) {
 			{/* Character Stat block */}
 			<Container
 				className="backstory-view"
-				style={{ maxWidth: "1900px", width: "1900px", height: "657px" }}
+				style={{ maxWidth: "1900px", width: "1900px", height: "648px" }}
 			>
 				<CharacterStats
 					stats={props.fields.stats}
@@ -168,12 +178,16 @@ export default function CharacterFields(props) {
 					style={{
 						padding: "1em",
 						minHeight: "10em",
+						maxHeight: "10em",
+						overflowY: "scroll",
 						maxWidth: "30em",
-						marginRight: "125px", backgroundColor: "rgba(52, 52, 52, 0.5)", color: "#F5A300"
+						marginRight: "125px",
+						backgroundColor: "rgba(52, 52, 52, 0.5)",
+						color: "#F5A300",
 					}}
 				>
-					<CardText style={{ textAlign: "left", }}>
-						<b>Back Story:</b> {props.fields.backStory}
+					<CardText style={{ textAlign: "left" }}>
+						<b>Back Story:</b> <span style={{ color: "#21C056" }}>{props.fields.backStory}</span>
 					</CardText>
 				</Card>
 			</Container>

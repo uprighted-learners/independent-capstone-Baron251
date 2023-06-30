@@ -42,122 +42,152 @@ export default function CharacterStats(props) {
 			{/* Using H3s on the Mods to make the bar fit? */}
 			<Row style={{ marginLeft: "195px" }}>
 				<Col>
-					<CardColumns>
-						<Card style={{ backgroundColor: "rgba(52, 52, 52, 0.65)" }}>
-							<CardTitle tag="p">
+					<CardColumns style={{}}>
+						<Card
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								height: "6.3em",
+							}}
+						>
+							<CardTitle tag="h4" style={{ marginBottom: "0px" }}>
 								<span style={{ color: "#E53B10" }}>
 									{plusS}
 									{strengthMod}
 								</span>
 							</CardTitle>
 							<CardBody
-								tag="h2"
-								style={{ paddingTop: "1px", paddingBottom: "1px" }}
+								tag="h3"
+								style={{ padding: "1px", marginTop: "10px" }}
 							>
 								<span style={{ color: "#E53B10" }}>{props.stats.strength}</span>
 							</CardBody>
-							<CardSubtitle>
+							<CardSubtitle style={{fontSize: "13.25px"}}>
 								<b>
 									<span style={{ color: "#E53B10" }}>Strength</span>{" "}
 								</b>
 							</CardSubtitle>
 						</Card>
-						<Card style={{ backgroundColor: "rgba(52, 52, 52, 0.65)" }}>
-							<CardTitle tag="p">
+						<Card
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								height: "6.3em",
+							}}
+						>
+							<CardTitle tag="h4" style={{ marginBottom: "0px" }}>
 								<span style={{ color: "#21C056" }}>
 									{plusD}
 									{dexterityMod}
 								</span>
 							</CardTitle>
 							<CardBody
-								tag="h2"
-								style={{ paddingTop: "1px", paddingBottom: "1px" }}
+								tag="h3"
+								style={{ paddingTop: "1px", paddingBottom: "1px", marginTop: "10px" }}
 							>
 								<span style={{ color: "#21C056" }}>
 									{props.stats.dexterity}
 								</span>
 							</CardBody>
-							<CardSubtitle>
+							<CardSubtitle style={{fontSize: "15px"}}>
 								<b>
 									<span style={{ color: "#21C056" }}>Dexterity</span>{" "}
 								</b>
 							</CardSubtitle>
 						</Card>
-						<Card style={{ backgroundColor: "rgba(52, 52, 52, 0.65)" }}>
-							<CardTitle tag="p">
+						<Card
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								height: "6.3em",
+							}}
+						>
+							<CardTitle tag="h4" style={{ marginBottom: "0px" }}>
 								<span style={{ color: "#C36609" }}>
 									{plusC}
 									{constitutionMod}
 								</span>
 							</CardTitle>
 							<CardBody
-								tag="h2"
-								style={{ paddingTop: "1px", paddingBottom: "1px" }}
+								tag="h3"
+								style={{ paddingTop: "1px", paddingBottom: "1px", marginTop: "10px" }}
 							>
 								<span style={{ color: "#C36609" }}>
 									{props.stats.constitution}
 								</span>
 							</CardBody>
-							<CardSubtitle>
+							<CardSubtitle style={{fontSize: "13.25px"}}>
 								<b>
 									<span style={{ color: "#C36609" }}>Constitution</span>{" "}
 								</b>
 							</CardSubtitle>
 						</Card>
-						<Card style={{ backgroundColor: "rgba(52, 52, 52, 0.65)" }}>
-							<CardTitle tag="p">
+						<Card
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								height: "6.3em",
+							}}
+						>
+							<CardTitle tag="h4" style={{ marginBottom: "0px" }}>
 								<span style={{ color: "#018FB7" }}>
 									{plusI}
 									{intelligenceMod}
 								</span>
 							</CardTitle>
 							<CardBody
-								tag="h2"
-								style={{ paddingTop: "1px", paddingBottom: "1px" }}
+								tag="h3"
+								style={{ paddingTop: "1px", paddingBottom: "1px", marginTop: "10px" }}
 							>
 								<span style={{ color: "#018FB7" }}>
 									{props.stats.intelligence}
 								</span>
 							</CardBody>
-							<CardSubtitle>
+							<CardSubtitle style={{fontSize: "13.25px"}}>
 								<b>
 									<span style={{ color: "#018FB7" }}>Intelligence</span>{" "}
 								</b>
 							</CardSubtitle>
 						</Card>
-						<Card style={{ backgroundColor: "rgba(52, 52, 52, 0.65)" }}>
-							<CardTitle tag="p">
+						<Card
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								height: "6.3em",
+							}}
+						>
+							<CardTitle tag="h4" style={{ marginBottom: "0px" }}>
 								<span style={{ color: "white" }}>
 									{plusW}
 									{wisdomMod}
 								</span>
 							</CardTitle>
 							<CardBody
-								tag="h2"
-								style={{ paddingTop: "1px", paddingBottom: "1px" }}
+								tag="h3"
+								style={{ paddingTop: "1px", paddingBottom: "1px", marginTop: "10px" }}
 							>
 								<span style={{ color: "white" }}>{props.stats.wisdom}</span>
 							</CardBody>
-							<CardSubtitle>
+							<CardSubtitle style={{fontSize: "13.25px"}}>
 								<b>
 									<span style={{ color: "white" }}>Wisdom</span>{" "}
 								</b>
 							</CardSubtitle>
 						</Card>
-						<Card style={{ backgroundColor: "rgba(52, 52, 52, 0.65)" }}>
-							<CardTitle tag="p">
+						<Card
+							style={{
+								backgroundColor: "rgba(52, 52, 52, 0.65)",
+								height: "6.3em",
+							}}
+						>
+							<CardTitle tag="h4" style={{ marginBottom: "0px" }}>
 								<span style={{ color: "#AD7CD8" }}>
 									{plusCh}
 									{charismaMod}
 								</span>
 							</CardTitle>
 							<CardBody
-								tag="h2"
-								style={{ paddingTop: "1px", paddingBottom: "1px" }}
+								tag="h3"
+								style={{ paddingTop: "1px", paddingBottom: "1px", marginTop: "10px" }}
 							>
 								<span style={{ color: "#AD7CD8" }}>{props.stats.charisma}</span>
 							</CardBody>
-							<CardSubtitle>
+							<CardSubtitle style={{fontSize: "13.25px"}}>
 								<b>
 									<span style={{ color: "#AD7CD8" }}>Charisma</span>
 								</b>

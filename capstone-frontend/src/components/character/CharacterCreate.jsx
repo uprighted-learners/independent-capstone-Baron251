@@ -129,6 +129,7 @@ export default function CharacterCreate(props) {
 				backgroundImage: `url(${background})`,
 				backgroundRepeat: "no-repeat",
 				backgroundSize: "cover",
+				
 			}}
 		>
 			<Container
@@ -145,7 +146,8 @@ export default function CharacterCreate(props) {
 
 			<Form
 				onSubmit={handleSubmit}
-				style={{ height: "55.04em", paddingTop: "100px" }}
+				style={{ height: "55.04em", paddingTop: "100px",
+				height: "52.09em" }}
 			>
 				<Container className="NRLC">
 					<FormGroup>
@@ -155,7 +157,7 @@ export default function CharacterCreate(props) {
 									style={{
 										backgroundColor: "rgba(52, 52, 52, 0.65)",
 										color: "#F5A300",
-										width: "100px",
+										width: "160px",
 										borderRadius: "5px",
 									}}
 								>
@@ -238,7 +240,7 @@ export default function CharacterCreate(props) {
 								style={{
 									backgroundColor: "rgba(52, 52, 52, 0.65)",
 									color: "#F5A300",
-									width: "100px",
+									width: "160px",
 									borderRadius: "5px",
 								}}
 							>
@@ -363,7 +365,7 @@ export default function CharacterCreate(props) {
 						</InputGroup>
 						<Label
 							style={{
-								wordSpacing: "50px",
+								wordSpacing: "23px",
 								backgroundColor: "rgba(52, 52, 52, 1)",
 								width: "40em",
 								borderRadius: "5px",

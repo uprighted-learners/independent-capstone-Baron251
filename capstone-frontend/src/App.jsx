@@ -7,6 +7,7 @@ import CharacterIndex from './components/character/CharacterIndex';
 import CharacterCreate from './components/character/CharacterCreate';
 import CharacterSheet from './components/character/sheet/CharacterSheet';
 import CharacterEdit from './components/character/CharacterEdit';
+import CharacterPDFView from './components/character/sheet/characterPDF/CharacterPDFView';
 
 function App() {
   const [sessionToken, setSessionToken] = useState("")
@@ -34,6 +35,7 @@ function App() {
     <Route path="/character/creation" element={<CharacterCreate token={sessionToken}/>}/>
     <Route path="/character/:id" element={<CharacterSheet token={sessionToken}/>}/>
     <Route path="/character/edit/:id" element={<CharacterEdit token={sessionToken}/>}/>
+    <Route path='/character/PDF/:id' element={<CharacterPDFView/>}/>
     </Routes>
 
     </div>

@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button, Container, Col, Row } from "reactstrap";
 import CharacterFields from "./CharacterFields";
+import CharacterPDFView from "./characterPDF/CharacterPDFView";
 import background from "../../../assets/CharacterSheet-background.jpg.jpg";
-
 
 export default function CharacterSheet(props) {
 	const { id } = useParams();
@@ -30,7 +30,6 @@ export default function CharacterSheet(props) {
 			charisma: "",
 		},
 	});
-		
 
 	const url = `http://localhost:4000/character/${id}`;
 	const navigate = useNavigate();
@@ -53,7 +52,6 @@ export default function CharacterSheet(props) {
 	useEffect(() => {
 		if (props.token) {
 			fetchFields();
-			
 		}
 	}, [props.token]);
 	// useEffect(() => {
@@ -62,12 +60,17 @@ export default function CharacterSheet(props) {
 	// 	}
 	// }, [props.token]);
 
-	
 	return (
 		<div
-			style={{ backgroundImage: `url(${background})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", width: "100vw", height: "100vh"}}
+			style={{
+				backgroundImage: `url(${background})`,
+				backgroundSize: "cover",
+				backgroundRepeat: "no-repeat",
+				width: "100vw",
+				height: "100vh",
+			}}
 		>
-			<Row style={{ height: "50px"}}>
+			<Row style={{ height: "50px" }}>
 				<Col xs="1">
 					<Button
 						style={{ marginTop: "20px", width: "150px" }}
@@ -79,11 +82,24 @@ export default function CharacterSheet(props) {
 					</Button>
 				</Col>
 			</Row>
-			
-			<Row style={{height: "50px", paddingTop: "50px"}}>
+
+			<Row style={{ height: "50px", paddingTop: "50px" }}>
 				<Col xs="1">
-					<Button onClick={() => navigate(`/character/edit/${id}`)} color="warning" outline style={{width: "150px"}}>
+					<Button
+						onClick={() => navigate(`/character/edit/${id}`)}
+						color="warning"
+						outline
+						style={{ width: "150px" }}
+					>
 						Edit Character
+					</Button>
+				</Col>
+			</Row>
+
+			<Row style={{ height: "50px", paddingTop: "50px" }}>
+				<Col xs="1" style={{ paddingLeft: "24px" }}>
+					<Button>
+					<CharacterPDFView fields={fields}/>
 					</Button>
 				</Col>
 			</Row>
@@ -93,7 +109,6 @@ export default function CharacterSheet(props) {
 				token={props.token}
 				fields={fields}
 			/>
-
 		</div>
 	);
 }

@@ -9,6 +9,8 @@ import {
 	Container,
 	Row,
 	Col,
+	Card,
+	CardText,
 } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import background from "../../assets/CharacterCreate-background.jpg";
@@ -39,6 +41,9 @@ export default function CharacterCreate(props) {
 		"Human",
 		"Tiefling",
 	];
+	let skillList = [
+		"athletics", "acrobatics", "sleight of hand", "stealth", "arcana", "history", "investigation", "nature", "religion", "animal handling", "insight", "medicine", "perception", "survival", "deception", "intimidation", "performance", "persuasion"
+	]
 
 	const navigate = useNavigate();
 
@@ -59,6 +64,19 @@ export default function CharacterCreate(props) {
 	const intelligenceRef = useRef();
 	const wisdomRef = useRef();
 	const charismaRef = useRef();
+
+	const DnDFetch = async (e) => {
+		const lowerCla = claRef.current.value.toLowerCase();
+		let url = `https://www.dnd5eapi.co/api/classes/${lowerCla}`;
+
+		try {
+			const res = await fetch(url);
+			const data = await res.json();
+			console.log(data);
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -129,7 +147,6 @@ export default function CharacterCreate(props) {
 				backgroundImage: `url(${background})`,
 				backgroundRepeat: "no-repeat",
 				backgroundSize: "cover",
-				
 			}}
 		>
 			<Container
@@ -146,9 +163,12 @@ export default function CharacterCreate(props) {
 
 			<Form
 				onSubmit={handleSubmit}
-				style={{ height: "55.04em", paddingTop: "100px",
-				height: "52.09em" }}
+				style={{ height: "55.04em", paddingTop: "100px", height: "52.09em" }}
 			>
+				{/* Skills */}
+					{/* FormGroup > ledgend tag, in map we want input and label */}
+					
+					
 				<Container className="NRLC">
 					<FormGroup>
 						<Row>
@@ -182,7 +202,12 @@ export default function CharacterCreate(props) {
 								>
 									Class
 								</Label>
-								<Input innerRef={claRef} type="select" required>
+								<Input
+									onChange={DnDFetch}
+									innerRef={claRef}
+									type="select"
+									required
+								>
 									{classList.map((clas, i) => (
 										<option key={i} value={clas}>
 											{clas}
@@ -232,6 +257,9 @@ export default function CharacterCreate(props) {
 							</Col>
 						</Row>
 					</FormGroup>
+
+					
+				
 
 					{/* Physical traits */}
 					<FormGroup>
@@ -313,6 +341,7 @@ export default function CharacterCreate(props) {
 
 				{/* Backstory */}
 				<Container className="backstory" style={{ height: "20em" }}>
+					
 					<FormGroup style={{ width: "50%" }}>
 						{/* Stats */}
 						<Label
@@ -326,42 +355,12 @@ export default function CharacterCreate(props) {
 							Attributes
 						</Label>
 						<InputGroup>
-							<Input
-								innerRef={strengthRef}
-								type="number"
-								required
-								
-							/>
-							<Input
-								innerRef={dexterityRef}
-								type="number"
-								required
-								
-							/>
-							<Input
-								innerRef={constitutionRef}
-								type="number"
-								required
-								
-							/>
-							<Input
-								innerRef={intelligenceRef}
-								type="number"
-								required
-								
-							/>
-							<Input
-								innerRef={wisdomRef}
-								type="number"
-								required
-								
-							/>
-							<Input
-								innerRef={charismaRef}
-								type="number"
-								required
-								
-							/>
+							<Input innerRef={strengthRef} type="number" max={20} min={1} required />
+							<Input innerRef={dexterityRef} type="number" max={20} min={1} required />
+							<Input innerRef={constitutionRef} type="number" max={20} min={1} required />
+							<Input innerRef={intelligenceRef} type="number" max={20} min={1} required />
+							<Input innerRef={wisdomRef} type="number" max={20} min={1} required />
+							<Input innerRef={charismaRef} type="number" max={20} min={1} required />
 						</InputGroup>
 						<Label
 							style={{
@@ -381,7 +380,21 @@ export default function CharacterCreate(props) {
 							</b>
 						</Label>
 					</FormGroup>
-
+{/* Skills */}
+					{/* FormGroup > ledgend tag, in map we want input and label */}
+					
+					{/* <h1>SKILL LIST</h1>	
+					<Container style={{textAlign: "left"}}>
+					{skillList.map((skill, i) => (
+						<FormGroup check>
+							<Input name={skill} type="radio" />
+							{'   '}
+							<Label check key={i} value={skill}>
+								{skill}
+							</Label>
+						</FormGroup>
+					))}
+					</Container> */}
 					<FormGroup>
 						<Label
 							style={{
@@ -400,6 +413,7 @@ export default function CharacterCreate(props) {
 							placeholder="Backstory:"
 						/>
 					</FormGroup>
+					
 				</Container>
 				<Button type="submit" color="success">
 					Create Character

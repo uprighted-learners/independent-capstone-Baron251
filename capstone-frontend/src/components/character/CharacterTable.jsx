@@ -4,7 +4,8 @@ import FullButton from "../buttons/FullButton";
 
 export default function CharacterTable(props) {
 	const navigate = useNavigate();
-	console.log(props);
+
+	console.log("Props",props);
 	async function deleteCharacter(id) {
 		const url = `http://localhost:4000/character/${id}`;
 		const myHeaders = new Headers();
@@ -26,17 +27,19 @@ export default function CharacterTable(props) {
 			console.error(error);
 		}
 	}
-	console.log("Length of characters",props.characters)
+
 	return (
 		<>
-			<h1 style={{ color: "#F5DFB8", paddingBottom: "25px" }}>List of Characters</h1>
+			<h1 style={{ color: "#F5DFB8", paddingBottom: "25px" }}>
+				List of Characters
+			</h1>
 			<Container
 				style={{
 					height: "50em",
 					width: "40em",
 					overflow: "scroll",
 					overflowX: "hidden",
-					background: "transparent"
+					background: "transparent",
 				}}
 			>
 				<Table style={{ backgroundColor: "rgba(52, 52, 52, 0)" }}>
@@ -61,7 +64,7 @@ export default function CharacterTable(props) {
 						</tr>
 					</thead>
 					<tbody>
-						{props.characters ? 
+						{props.characters ? (
 							props.characters.map((character) => (
 								<tr
 									key={character._id}
@@ -93,25 +96,34 @@ export default function CharacterTable(props) {
 											>
 												<b>View Character</b>
 											</Button>
+											{props.ownerId === character.owner_id ?
 											<Button
 												onClick={() => deleteCharacter(character._id)}
 												outline
 												color="danger"
+												
 											>
 												Delete Character
-											</Button>
+											</Button> : <Button
+												onClick={() => deleteCharacter(character._id)}
+												outline
+												color="danger"
+												disabled
+											>
+												Delete Character
+											</Button>}
 										</FullButton>
 									</td>
 								</tr>
 							))
-						 : 
+						) : (
 							<tr>
 								<th>You have no characters made.</th>
 								<td>
 									Look to the "Get Started" button to make your first character
 								</td>
 							</tr>
-						}
+						)}
 					</tbody>
 				</Table>
 			</Container>

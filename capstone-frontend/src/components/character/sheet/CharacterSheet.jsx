@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 import { Button, Container, Col, Row } from "reactstrap";
 import CharacterFields from "./CharacterFields";
 import CharacterPDFView from "./characterPDF/CharacterPDFView";
 import background from "../../../assets/CharacterSheet-background.jpg.jpg";
 
 export default function CharacterSheet(props) {
+	const decoded = props.token ? jwt_decode(props.token) : "";
+	console.log("Decoded Token", decoded.id);
+	const owner_id = decoded.id;
+	console.log("Props", props)
 	const { id } = useParams();
 	const [fields, setFields] = useState({
 		name: "No Name",
@@ -29,6 +34,7 @@ export default function CharacterSheet(props) {
 			wisdom: "",
 			charisma: "",
 		},
+		owner_id: ""
 	});
 //! Can you see me?
 	const url = `http://localhost:4000/character/${id}`;
@@ -54,11 +60,7 @@ export default function CharacterSheet(props) {
 			fetchFields();
 		}
 	}, [props.token]);
-	// useEffect(() => {
-	// 	if (props.token && fields !== null) {
-	// 		fetchFields();
-	// 	}
-	// }, [props.token]);
+	
 
 	return (
 		<div
@@ -85,6 +87,7 @@ export default function CharacterSheet(props) {
 
 			<Row style={{ height: "50px", paddingTop: "50px" }}>
 				<Col xs="1">
+					{owner_id === fields.owner_id ?
 					<Button
 						onClick={() => navigate(`/character/edit/${id}`)}
 						color="warning"
@@ -92,15 +95,26 @@ export default function CharacterSheet(props) {
 						style={{ width: "150px" }}
 					>
 						Edit Character
-					</Button>
+					</Button> : <Button
+						onClick={() => navigate(`/character/edit/${id}`)}
+						color="warning"
+						outline
+						disabled
+						style={{ width: "150px" }}
+					>
+						Edit Character
+					</Button>}
 				</Col>
 			</Row>
 
 			<Row style={{ height: "50px", paddingTop: "50px" }}>
 				<Col xs="1" style={{ paddingLeft: "24px" }}>
+					{owner_id === fields.owner_id ?
 					<Button>
 					<CharacterPDFView fields={fields}/>
-					</Button>
+					</Button> : <Button disabled>
+					<CharacterPDFView fields={fields}/>
+					</Button>}
 				</Col>
 			</Row>
 

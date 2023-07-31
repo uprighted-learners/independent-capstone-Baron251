@@ -70,12 +70,13 @@ export default function CharacterTable(props) {
 									key={character._id}
 									style={{ backgroundColor: "rgba(52, 52, 52, 0)" }}
 								>
+									{/* GET MAX WIDTH ON VIEW/DELETE BUTTONS */}
 									<th
 										scope="row"
 										style={{
 											backgroundColor: "rgba(52, 52, 52, 0.49)",
 											fontSize: 20,
-											color: "#F5DFB8",
+											color: "#F5DFB8"
 										}}
 									>
 										{character.name}

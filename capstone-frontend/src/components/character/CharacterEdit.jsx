@@ -171,8 +171,8 @@ export default function CharacterEdit(props) {
 				backgroundImage: `url(${background})`,
 				height: "58.55em",
 				paddingTop: "50px",
-				backgroundSize: "100vw"
-				// backgroundRepeat: "no-repeat"
+				backgroundSize: "100vw",
+				height: "100vh"
 			}}
 		>
 			<Container className="title">

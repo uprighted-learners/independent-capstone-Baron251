@@ -111,6 +111,7 @@ export default function CharacterIndex(props) {
 						</Card>
 					</Col>
 					<Col md="8">
+						{/* GET MAX WIDTH ON VIEW/DELETE BUTTONS */}
 						<CharacterTable
 							characters={characters}
 							token={props.token}

@@ -9,7 +9,7 @@ import Login from "./login/Login";
 
 export default function Auth(props) {
 	// useState to hold button's state login/signup
-	const [button, setButton] = useState("Signup");
+	const [button, setButton] = useState("Login");
 
 	// function to switch button from login to signup with setButton
 	const swapForm = () => {
@@ -19,25 +19,21 @@ export default function Auth(props) {
 	const displayForm = () => {
 		return button === "Login" ? (
 			<Container>
-				{/* <Row>
-					<Col md="6"> */}
+				
 						<Signup updateToken={props.updateToken} />
-					{/* </Col>
-				</Row> */}
+					
 			</Container>
 		) : (
 			<Container style={{display: "flex", justifySelf: "center", width: "500px"}}>
-				{/* <Row>
-					<Col md="6"> */}
+				
 						<Login updateToken={props.updateToken} />
-					{/* </Col>
-				</Row> */}
+					
 			</Container>
 		);
 	};
 
 	return (
-		<div style={{backgroundImage: `url(${AuthB})`, backgroundSize: "cover", height: "58.55em", backgroundColor: "#F5DFB8"}}>
+		<div style={{backgroundImage: `url(${AuthB})`, backgroundSize: "cover", height: "100vh", backgroundColor: "#F5DFB8"}}>
 			<FullButton>
 				<Button onClick={swapForm} color="dark" style={{ borderTopLeftRadius: "0px", borderTopRightRadius: "0px"}}>
 					{button}

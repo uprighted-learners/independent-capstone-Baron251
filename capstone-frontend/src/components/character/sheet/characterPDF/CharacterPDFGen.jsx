@@ -5,8 +5,8 @@ import {
 	Page,
 	StyleSheet,
 	View,
-	Font,
-	Image,
+	// Font,
+	// Image,
 } from "@react-pdf/renderer";
 // import background from "../../../../assets/Blurg.png";
 
@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
 		border: "3px",
 		fontSize: "16px",
 		height: "45px",
-		marginTop: "10px"
+		marginTop: "10px",
+		maxWidth: "180px"
 	},
 	physical: {
 		border: "3px",
@@ -90,9 +91,9 @@ export default function CharacterPDFGen(props) {
 					<View style={{flexDirection: "column"}}>
 					{/* NRC */}
 					<View style={styles.NRC}>
-						<Text>{props.fields.name}</Text>
-						<Text>{props.fields.race}</Text>
-						<Text>{props.fields.cla}</Text>
+						<Text>Name: {props.fields.name}</Text>
+						<Text>Race: {props.fields.race}</Text>
+						<Text>Class: {props.fields.cla}</Text>
 					</View>
 
 					{/* Prof + Level */}
